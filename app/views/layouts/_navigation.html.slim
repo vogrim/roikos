@@ -1,0 +1,23 @@
+.navbar.navbar-default
+  .container
+    .navbar-header
+      a.navbar-brand href="/" Roikos CRM
+
+    ul.nav.navbar-nav
+      li class="#{params[:controller] == "brands" ? "active" : ""}"
+        == link_to "Brands", brands_path
+      li class="#{params[:controller] == "products" ? "active" : ""}"
+        == link_to "Produkte", products_path
+      li class="#{params[:controller] == "transactions" ? "active" : ""}"
+        == link_to "Transaktionen", transactions_path
+      li
+        a href="" Kunden
+      li
+        a href="" Shop
+      li
+        a href="" Social Media
+      li
+        a href="" Traffic
+
+    div.pull-right
+      button type="button" class="btn btn-default navbar-btn" Logout

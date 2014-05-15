@@ -1,0 +1,22 @@
+h2
+  | Produkte
+  = link_to_with_icon 'plus', 'Neues hinzufügen', new_product_path , class: "btn btn-primary pull-right"
+
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th #
+      th Titel
+      th Brand
+      th.text-right
+
+  tbody
+    - for product in @products do
+      tr
+        td = product.id
+        td: strong = product.title
+        td = product.brand.title
+        td.text-right
+          = link_to_with_icon 'edit', 'Bearbeiten', edit_product_path(product)
+          |  
+          = link_to_with_icon 'remove', 'Löschen', product_path(product), method: :delete, class: "text-danger", data: { confirm: "Produkt wirklich löschen?" }, "data-confirm-title" => 'Blubb'

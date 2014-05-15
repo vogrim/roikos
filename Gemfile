@@ -41,3 +41,17 @@ gem 'spring',        group: :development
 gem 'slim'
 
 gem 'bourbon'
+
+gem 'bootstrap-sass', '~> 3.1.1'
+
+gem 'bootstrap-datepicker-rails'
+
+gem 'twitter-bootstrap-rails-confirm', github: 'bluerail/twitter-bootstrap-rails-confirm', branch: 'bootstrap3'
+
+gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
+
+group :development do
+  gem "pry-rails", "~> 0.2"
+  gem "better_errors"
+  gem "binding_of_caller" 
+end

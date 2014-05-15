@@ -1,0 +1,9 @@
+== simple_form_for @product do |f|
+
+  == f.input :title, placeholder: 'Titel', label: "Titel"
+
+  == f.input :brand_id, collection: @brands, include_blank: false, label: "Brand"
+
+  == f.button :submit, "Speichern"
+
+  == link_to 'Zurück', :back, class: "pull-right" 
