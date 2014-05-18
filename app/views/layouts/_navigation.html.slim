@@ -10,6 +10,8 @@
         == link_to "Produkte", products_path
       li class="#{params[:controller] == "transactions" ? "active" : ""}"
         == link_to "Transaktionen", transactions_path
+      li class="#{params[:controller] == "transaction_types" ? "active" : ""}"
+        == link_to "Transaktions-Typen", transaction_types_path
       li
         a href="" Kunden
       li

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources :products, :brands, :transactions
+  resources :products, :brands, :transactions, :transaction_types
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
