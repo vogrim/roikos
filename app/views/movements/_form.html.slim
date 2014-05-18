@@ -1,6 +1,6 @@
-== simple_form_for @transaction do |f|
+== simple_form_for @movement do |f|
 
-  = f.input :transaction_at, as: :bootstrap_datepicker, label: "Transaktion durchgeführt am"
+  = f.input :movement_at, as: :bootstrap_datepicker, label: "Transaktion durchgeführt am"
 
   = f.input :product_id, collection: @products, include_blank: false, label: "Produkt"
 

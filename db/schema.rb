@@ -19,24 +19,24 @@ ActiveRecord::Schema.define(version: 20140516110349) do
     t.datetime "updated_at"
   end
 
-  create_table "products", force: true do |t|
-    t.string   "title"
-    t.integer  "brand_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "transaction_types", force: true do |t|
+  create_table "movement_types", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  create_table "transactions", force: true do |t|
-    t.date     "transaction_at"
+  create_table "movements", force: true do |t|
+    t.date     "movement_at"
     t.integer  "count"
     t.integer  "product_id"
     t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "products", force: true do |t|
+    t.string   "title"
+    t.integer  "brand_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

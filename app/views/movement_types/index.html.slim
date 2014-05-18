@@ -1,0 +1,20 @@
+h2
+  | Transaktions-Typen
+  = link_to_with_icon 'plus', 'Neuen hinzufügen', new_movement_type_path , class: "btn btn-primary pull-right"
+
+table.table.table-striped.table-responsive
+  thead
+    tr
+      th #
+      th Titel
+      th.text-right
+
+  tbody
+    - for movement_type in @movement_types do
+      tr
+        td = movement_type.id
+        td = movement_type.title
+        td.text-right
+          = link_to_with_icon 'edit', 'Bearbeiten', edit_movement_type_path(movement_type)
+          |  
+          = link_to_with_icon 'remove', 'Löschen', movement_type_path(movement_type), method: :delete, class: "text-danger", data: { confirm: "Transaktions-Type wirklich löschen?" }, "data-confirm-title" => 'Transaktions-Typen löschen'

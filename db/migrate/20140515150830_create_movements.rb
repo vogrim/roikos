@@ -1,7 +1,7 @@
-class CreateTransactions < ActiveRecord::Migration
+class CreateMovements < ActiveRecord::Migration
   def change
-    create_table :transactions do |t|
-      t.date :transaction_at
+    create_table :movements do |t|
+      t.date :movement_at
       t.integer :count
       t.references :product
       t.string :note

@@ -8,5 +8,5 @@
 
 brand             = Brand.create(title: 'Der Wüsteneisbär')
 product           = Product.create(title: 'Buch: Der Wüsteneisbär: Das Abenteuer beginnt!', brand: brand)
-transactionType   = TransactionType.create(title: 'Geschenk')
-transaction       = Transaction.create(transaction_at: '2014-05-15', count: 10, product: product, note: 'Bücherei Test')
+movementType      = MovementType.create(title: 'Geschenk')
+movement          = Movement.create(movement_at: '2014-05-15', count: 10, product: product, note: 'Bücherei Test')
