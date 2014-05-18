@@ -6,8 +6,9 @@ table.table.table-striped.table-responsive
   thead
     tr
       th Datum
-      th Produkt
       th Anzahl
+      th Produkt
+      th Typ
       th Info
       th.text-right
 
@@ -15,8 +16,9 @@ table.table.table-striped.table-responsive
     - for movement in @movements do
       tr
         td = movement.movement_at
-        td = movement.product.title
         td = movement.count
+        td = movement.product.title
+        td = movement.movement_type.title
         td = movement.note
         td.text-right
           = link_to_with_icon 'edit', 'Bearbeiten', edit_movement_path(movement)

@@ -6,6 +6,8 @@
 
   = f.input :count, label: "Anzahl"
 
+  = f.input :movement_type_id, collection: @movement_types, include_blank: false, label: "Typ"
+
   = f.input :note, label: "Notiz"
 
   = f.button :submit, "Speichern"

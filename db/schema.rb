@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20140516110349) do
     t.date     "movement_at"
     t.integer  "count"
     t.integer  "product_id"
+    t.integer  "movement_type_id"
     t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"

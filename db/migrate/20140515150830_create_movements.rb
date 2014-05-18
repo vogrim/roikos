@@ -4,6 +4,7 @@ class CreateMovements < ActiveRecord::Migration
       t.date :movement_at
       t.integer :count
       t.references :product
+      t.references :movement_type
       t.string :note
       t.timestamps
     end

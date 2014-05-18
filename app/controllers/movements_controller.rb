@@ -1,7 +1,7 @@
 class MovementsController < ApplicationController
 
   before_filter :load_movement, only: [:edit, :update, :destroy]
-  before_filter :load_products
+  before_filter :load_products, :load_movement_types
 
   def index
     @movements = Movement.all
@@ -45,6 +45,10 @@ class MovementsController < ApplicationController
 
   def load_products
     @products = Product.all
+  end
+
+  def load_movement_types
+    @movement_types = MovementType.all
   end
 
 end
