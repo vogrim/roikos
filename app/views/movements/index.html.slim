@@ -1,6 +1,8 @@
-h2
-  | Transaktionen
-  = link_to_with_icon 'plus', 'Neue hinzufügen', new_movement_path , class: "btn btn-primary pull-right"
+h2 class="ui header"
+  i class="settings icon"
+  div class="content"
+    = t("activerecord.models.movement.other")
+    div class="sub header" Manage your account settings and set e-mail preferences.
 
 table.table.table-striped.table-responsive
   thead

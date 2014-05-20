@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   root 'dashboard#index'
 
-  resources :products, :brands, :movements, :movement_types
+  scope "/:locale", locale: /en|de/ do
+    resources :products, :brands, :movements, :movement_types
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

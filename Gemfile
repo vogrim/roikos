@@ -42,11 +42,17 @@ gem 'slim'
 
 gem 'bourbon'
 
-gem 'bootstrap-sass', '~> 3.1.1'
+# gem 'bootstrap-sass', '~> 3.1.1'
 
-gem 'bootstrap-datepicker-rails'
+# gem 'bootstrap-datepicker-rails'
 
-gem 'twitter-bootstrap-rails-confirm', github: 'bluerail/twitter-bootstrap-rails-confirm', branch: 'bootstrap3'
+# gem 'twitter-bootstrap-rails-confirm', github: 'bluerail/twitter-bootstrap-rails-confirm', branch: 'bootstrap3'
+
+gem 'therubyracer', platforms: :ruby
+gem 'less-rails'
+gem 'autoprefixer-rails'
+gem 'semantic-ui-rails'
+
 
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 

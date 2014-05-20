@@ -1,0 +1,7 @@
+de:
+
+  activerecord:
+    models:
+      movement:
+        one: "Warenbewegung"
+        other: "Warenbewegungen"

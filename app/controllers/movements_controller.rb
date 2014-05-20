@@ -36,7 +36,7 @@ class MovementsController < ApplicationController
   private
 
   def movement_params
-    params.require(:movement).permit(:movement_at, :count, :product_id, :note)
+    params.require(:movement).permit(:movement_at, :count, :product_id, :movement_type_id, :note)
   end
 
   def load_movement

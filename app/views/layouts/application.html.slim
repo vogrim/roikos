@@ -2,7 +2,8 @@ doctype html
 html
   head
 
-    title Roikos
+    title Roikos CRM-System
+    link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css"
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -11,5 +12,6 @@ html
 
     = render "layouts/navigation"
 
-    div.container
-      = yield
+    div class="ui page grid"
+      div class="column"
+        = yield
