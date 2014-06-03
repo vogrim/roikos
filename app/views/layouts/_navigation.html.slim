@@ -1,33 +1,58 @@
-div id="mainnav" class="ui fixed inverted menu page grid"
-  div.column
+div#nav-container test
 
-    a class="title item" href="/"
-      strong ROIKOS 
-      | CRM-System
+/*
+  div class="cl-sidebar"
 
-    div class="ui dropdown item#{params[:controller].starts_with?('movement') ? " active" : ""}"
-      = label_with_item 'truck', t("activerecord.models.movement.other")
-      div class="menu"
-        = nav_link_item 'list', 'Übersicht', movements_path, 'movements'
-        = nav_link_item 'file outline', 'Transaktions-Typen', movement_types_path, 'movement_types'
+    div class="cl-navblock"
+      div class="menu-space"
 
-    div class="ui dropdown item" = label_with_item 'laptop', 'Produkte'
-      div class="menu"
-        = nav_link_item 'list', 'Brands', brands_path, 'brands'
-        = nav_link_item 'list', 'Produkte', products_path, 'products'
+        div class="content"
+          div class="sidebar-logo"
+            div class="logo"
+                a href="index2.html" Roiko CRM
+          div class="side-user"
 
-    a.item = label_with_item 'user', 'Kunden'
+          ul class="cl-vnavigation"
+            li class="parent"
+              a href="" class="dropdown-toggle"
+                = label_with_item 'camera-retro', 'Brands'
+              ul class="sub-menu dropdown-menu"
+                li = nav_link_item 'list', 'Brands', brands_path, 'brands'
+                li = nav_link_item 'list', 'Produkte', products_path, 'products'
 
-    a.item = label_with_item 'cart', 'Shop'
+            li: a = label_with_item 'user', 'Kunden'
 
-    a.item = label_with_item 'facebook', 'Social Media'
+            li: a = label_with_item 'shopping-cart', 'Shop'
 
-    a.item = label_with_item 'signal', 'Traffic'
+            li: a = label_with_item 'facebook', 'Social Media'
+
+            li: a = label_with_item 'signal', 'Traffic'
+
+  /*
+    div id="mainnav" class="ui fixed inverted menu page grid large"
+      div.column
+
+        a class="title item" href="/"
+          strong ROIKOS 
+          | CRM-System
+
+        div class="ui dropdown item#{params[:controller].starts_with?('movement') ? " active" : ""}"
+          = label_with_item 'truck', t("activerecord.models.movement.other")
+          div class="menu"
+            = nav_link_item 'list', 'Übersicht', movements_path, 'movements'
+            = nav_link_item 'file outline', 'Transaktions-Typen', movement_types_path, 'movement_types'
+
+        div class="ui dropdown item"
+          = label_with_item 'laptop', 'Produkte'
+          div class="menu"
+            = nav_link_item 'list', 'Brands', brands_path, 'brands'
+            = nav_link_item 'list', 'Produkte', products_path, 'products'
 
 
-    div class="right menu"
 
-      - if locale == :de
-        = link_to_with_icon "globe", "Englisch", url_for( :locale => "en" ), :class => "item"
-      - else
-        = link_to_with_icon "globe", "Deutsch", url_for( :locale => "de" ), :class => "item"
+        div class="right menu"
+
+          - if locale == :de
+            = link_to_with_icon "globe", "Englisch", url_for( :locale => "en" ), :class => "item"
+          - else
+            = link_to_with_icon "globe", "Deutsch", url_for( :locale => "de" ), :class => "item"

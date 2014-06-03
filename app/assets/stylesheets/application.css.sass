@@ -1,21 +1,24 @@
+/*
+
+   _______  _______ _________ _        _______  _______ 
+  (  ____ )(  ___  )\__   __/| \    /\(  ___  )(  ____ \
+  | (    )|| (   ) |   ) (   |  \  / /| (   ) || (    \/
+  | (____)|| |   | |   | |   |  (_/ / | |   | || (_____ 
+  |     __)| |   | |   | |   |   _ (  | |   | |(_____  )
+  | (\ (   | |   | |   | |   |  ( \ \ | |   | |      ) |
+  | ) \ \__| (___) |___) (___|  /  \ \| (___) |/\____) |
+  |/   \__/(_______)\_______/|_/    \/(_______)\_______)
+                                                      
+                                              CRM # 1.0
+*/
+
 @import "bourbon"
 
-@import "semantic-ui.css"
+@import "_libraries/bootstrap-custom"
 
-body, html
-  font-family: 'PT Sans', Arial, sans-serif
-  font-size: 15px
-  padding: 0
-  margin: 0
+@import "_general/variables"
+@import "_general/base"
 
-#mainnav
-  .title
-    color: #ffd800
-    font-size: 18px
-
-#mainnav.ui.grid > .column
-  margin-top: 5px
-  margin-bottom: 5px
-
-.ui.menu .ui.dropdown.item.active
-  background-color: rgba(255, 255, 255, 0.2)
+@import "_layout/header"
+@import "_layout/navigation"
+@import "_layout/content"

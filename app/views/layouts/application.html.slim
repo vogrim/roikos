@@ -2,16 +2,17 @@ doctype html
 html
   head
 
-    title Roikos CRM-System
-    link href="http://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet" type="text/css"
-    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    title = yield(:title).empty? ? "Roikos CRM" : "#{yield(:title)} | Roikos CRM"
+
+    meta name="viewport" content="width=device-width, user-scalable=no, minimal-ui"
+
+    link href="http://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet" type="text/css"
+    = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
 
   body
 
+    = render "layouts/header"
     = render "layouts/navigation"
-
-    div class="ui page grid"
-      div class="column"
-        = yield
+    = render "layouts/content"

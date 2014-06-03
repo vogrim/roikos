@@ -1,0 +1,16 @@
+#nav-container
+  @include position(absolute, $headerHeightDesktop 0px 0 0px)
+  background: #242633
+  color: #fff
+  display: none
+
+.navigation-open #nav-container
+  display: block
+
+@media (min-width: $screen-sm-min)
+
+  #nav-container
+    @include position(absolute, 0px 0 0px 0px)
+    display: block
+    width: $navigationWidthDesktop
+    padding-top: $headerHeightDesktop
