@@ -1,54 +1,42 @@
-div#nav-container test
+div#nav-container
 
-/*
-  div class="cl-sidebar"
+  ul
 
-    div class="cl-navblock"
-      div class="menu-space"
+    li
+      = nav_link_item t("dashboard"), root_path, "dashboard", 'dashboard'
 
-        div class="content"
-          div class="sidebar-logo"
-            div class="logo"
-                a href="index2.html" Roiko CRM
-          div class="side-user"
+    li.parent
+      a href="" = label_with_item 'transfer', t("activerecord.models.movement.other")
 
-          ul class="cl-vnavigation"
-            li class="parent"
-              a href="" class="dropdown-toggle"
-                = label_with_item 'camera-retro', 'Brands'
-              ul class="sub-menu dropdown-menu"
-                li = nav_link_item 'list', 'Brands', brands_path, 'brands'
-                li = nav_link_item 'list', 'Produkte', products_path, 'products'
+      ul
+        li = nav_link_item t("overview"), movements_path, "movements"
+        li = nav_link_item t("activerecord.models.product.other"), movement_types_path, "movement_types"
 
-            li: a = label_with_item 'user', 'Kunden'
+    li.parent
+      a href="" = label_with_item 'tower', t("activerecord.models.brand.other")
 
-            li: a = label_with_item 'shopping-cart', 'Shop'
+      ul
+        li = nav_link_item t("overview"), brands_path, "brands"
+        li = nav_link_item t("activerecord.models.product.other"), products_path, "products"
 
-            li: a = label_with_item 'facebook', 'Social Media'
+    li: a href=""
+      = label_with_item 'user', 'Kunden'
 
-            li: a = label_with_item 'signal', 'Traffic'
+    li: a href=""
+      = label_with_item 'shopping-cart', 'Shop'
+
+    li: a href=""
+      = label_with_item 'leaf', 'Social Media'
+
+    li: a href=""
+      = label_with_item 'signal', 'Traffic'
+
+
+
+
+
 
   /*
-    div id="mainnav" class="ui fixed inverted menu page grid large"
-      div.column
-
-        a class="title item" href="/"
-          strong ROIKOS 
-          | CRM-System
-
-        div class="ui dropdown item#{params[:controller].starts_with?('movement') ? " active" : ""}"
-          = label_with_item 'truck', t("activerecord.models.movement.other")
-          div class="menu"
-            = nav_link_item 'list', 'Übersicht', movements_path, 'movements'
-            = nav_link_item 'file outline', 'Transaktions-Typen', movement_types_path, 'movement_types'
-
-        div class="ui dropdown item"
-          = label_with_item 'laptop', 'Produkte'
-          div class="menu"
-            = nav_link_item 'list', 'Brands', brands_path, 'brands'
-            = nav_link_item 'list', 'Produkte', products_path, 'products'
-
-
 
         div class="right menu"
 

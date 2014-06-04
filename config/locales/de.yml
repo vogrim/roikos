@@ -1,7 +1,19 @@
 de:
 
+  dashboard: "Dashboard"
+
+  overview: "Übersicht"
+
   activerecord:
     models:
       movement:
         one: "Warenbewegung"
         other: "Warenbewegungen"
+
+      brand:
+        one: "Marke"
+        other: "Marken"
+
+      product:
+        one: "Produkt"
+        other: "Produkte"
