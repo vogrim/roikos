@@ -2,6 +2,23 @@
   @include box-shadow(0 1px 2px rgba(0, 0, 0, 0.1))
   line-height: $headerHeightDesktop
 
+  ul
+    list-style-type: none
+    padding: 0
+    margin: 0
+
+  li
+    line-height: 20px
+    padding: 10px 10px
+    border-bottom: 1px solid rgba($colorBlack, .1)
+
+    a
+      display: block
+
+      &:hover
+        color: $colorTheme2
+    
+
 #logo-container
   background: $colorBlack
   padding-left: 15px
@@ -25,7 +42,45 @@
 
 #header-content
   background: $colorWhite
+  font-size: 13px
+  overflow: hidden
 
+  .header-box
+    position: relative
+    border-left: 1px solid rgba($colorBlack, .1)
+    padding: 0 15px
+    float: left
+
+    &:hover > .glyphicon
+      opacity: 0.7
+
+  .header-box-action
+    cursor: pointer
+
+  #user-container
+
+    .user-avatar
+      width: 30px
+      height: 30px
+      border-radius: 50%
+      display: inline-block
+      margin-right: 10px
+
+.header-dropdown
+  @include position(absolute, 100% -1px 0 0)
+  min-width: 130px
+  background: $colorWhite
+  border: 1px solid rgba($colorBlack, .1)
+  display: none
+
+  li.active
+    border-right: 3px solid $colorTheme2
+
+.active .header-dropdown
+  display: block
+
+#notification-container .header-dropdown
+  min-width: 200px
 
 @media (min-width: $screen-sm-min)
 

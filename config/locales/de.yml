@@ -4,6 +4,9 @@ de:
 
   overview: "Übersicht"
 
+  notifications:
+    empty: "Keine kürzlichen Neuigkeiten"
+
   activerecord:
     models:
       movement:

@@ -26,6 +26,9 @@ en:
 
   overview: "Overview"
 
+  notifications:
+    empty: "No recent notifications"
+
   activerecord:
     models:
       movement:

@@ -2,7 +2,7 @@ header#header-container
 
   div#logo-container
 
-    a#logo href="/"
+    a#logo
       | Roikos 
       span CRM
 
@@ -10,4 +10,32 @@ header#header-container
       span.glyphicon.glyphicon-list
 
 
-  div#header-content class="container-fluid" &nbsp;
+  div#header-content
+
+
+    div.pull-right
+
+      div#notification-container class="header-box header-box-action"
+
+        span.glyphicon.glyphicon-fire
+
+        div.header-dropdown
+          ul: li = t('notifications.empty')
+
+
+      div#language-container class="header-box header-box-action"
+
+        span.glyphicon.glyphicon-globe
+
+        div.header-dropdown
+          ul
+            li class= (locale == :en ? "active" : "") = link_to "Englisch", url_for( :locale => "en" )
+            li class= (locale == :de ? "active" : "") = link_to "Deutsch", url_for( :locale => "de" )
+
+
+      div#user-container class="header-box"
+
+        img.user-avatar src="/img/content/user-avatar/1.jpg"
+
+        span.user-name Franz Dumfart
+

@@ -26,3 +26,8 @@ $(document).on 'page:load ready', ->
   $('#nav-container .parent > a').not('.parent-active > a').on 'click', ->
     $(this).parent().toggleClass 'visible'
     return false
+
+  $headerBox = $('.header-box')
+  $headerBox.on 'click', ->
+    $headerBox.not($(this)).removeClass 'active'
+    $(this).toggleClass 'active'
