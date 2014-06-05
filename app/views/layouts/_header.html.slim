@@ -9,33 +9,37 @@ header#header-container
     a#navigation-toggle class="pull-right"
       span.glyphicon.glyphicon-list
 
+  - if user_signed_in?
+    div#header-content class="clearfix"
 
-  div#header-content class="clearfix"
+      div.pull-right
 
+        div#notification-container class="header-box header-box-action"
 
-    div.pull-right
+          span.glyphicon.glyphicon-fire
 
-      div#notification-container class="header-box header-box-action"
-
-        span.glyphicon.glyphicon-fire
-
-        div.header-dropdown
-          ul: li = t('notifications.empty')
-
-
-      div#language-container class="header-box header-box-action"
-
-        span.glyphicon.glyphicon-globe
-
-        div.header-dropdown
-          ul
-            li class= (locale == :en ? "active" : "") = link_to "Englisch", url_for( :locale => "en" )
-            li class= (locale == :de ? "active" : "") = link_to "Deutsch", url_for( :locale => "de" )
+          div.header-dropdown
+            ul: li = t('notifications.empty')
 
 
-      div#user-container class="header-box"
+        div#language-container class="header-box header-box-action"
 
-        img.user-avatar src="/img/content/user-avatar/1.jpg"
+          span.glyphicon.glyphicon-globe
 
-        span.user-name Franz Dumfart
+          div.header-dropdown
+            ul
+              li class= (locale == :en ? "active" : "") = link_to "Englisch", url_for( :locale => "en" )
+              li class= (locale == :de ? "active" : "") = link_to "Deutsch", url_for( :locale => "de" )
+
+
+        div#user-container class="header-box header-box-action"
+
+          img.user-avatar src="/img/content/user-avatar/#{current_user.id}.jpg"
+          span.user-name = "#{current_user.firstname} #{current_user.surname}"
+          span.glyphicon.glyphicon-chevron-down
+
+          div.header-dropdown
+            ul
+              li: a href="" = t("settings")
+              li = link_to t('signout'), destroy_user_session_path, :method => :delete
 

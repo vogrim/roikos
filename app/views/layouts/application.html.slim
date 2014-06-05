@@ -13,6 +13,10 @@ html
 
   body
 
-    = render "layouts/header"
-    = render "layouts/navigation"
-    = render "layouts/content"
+    - if user_signed_in?
+        = render "layouts/header"
+        = render "layouts/navigation"
+        = render "layouts/content"
+    - else
+        = render "layouts/header"
+        = render "layouts/guestzone"

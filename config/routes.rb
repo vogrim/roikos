@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
 
-  root 'dashboard#index'
+  devise_for :users
+
+  root to: redirect("/#{I18n.default_locale}", status: 302), as: :redirected_root
+
+  get "/:locale", to: 'dashboard#index', as: 'root'
 
   scope "/:locale", locale: /en|de/ do
     resources :products, :brands, :movements, :movement_types

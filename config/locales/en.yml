@@ -26,6 +26,10 @@ en:
 
   overview: "Overview"
 
+  settings: "Settings"
+
+  signout: "Sign out"
+
   notifications:
     empty: "No recent notifications"
 

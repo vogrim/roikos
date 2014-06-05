@@ -52,6 +52,8 @@ gem "font-awesome-rails"
 
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 
+gem 'devise'
+
 group :development do
   gem "pry-rails", "~> 0.2"
   gem "better_errors"
