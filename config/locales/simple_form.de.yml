@@ -1,0 +1,28 @@
+de:
+
+  simple_form:
+
+    "yes": 'Ja'
+    "no": 'Nein'
+
+    required:
+      text: 'Pflichtfeld'
+      mark: '*'
+
+    error_notification:
+      default_message: "Bitte untenstehende Fehler beheben:"
+
+    labels:
+      defaults:
+        date: "Datum"
+        count: "Anzahl"
+        product: "Produkt"
+        type: "Typ"
+        note: "Notiz"
+        title: "Titel"
+        increase_state: "Erhöht Lagerstand"
+
+  helpers:
+    submit:
+      create: "%{model} hinzufügen"
+      update: "Änderung speichern"

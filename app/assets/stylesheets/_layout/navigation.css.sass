@@ -1,5 +1,5 @@
 #nav-container
-  @include position(absolute, $headerHeightDesktop 0px 0 0px)
+  @include position(absolute, $headerHeight 0px 0 0px)
   background: $colorTheme1
   color: #fff
   display: none
@@ -15,6 +15,7 @@
       display: block
       padding: 15px 15px
       color: $colorGrayMid
+      text-decoration: none
 
       &:hover
         text-decoration: none
@@ -68,5 +69,5 @@
   #nav-container
     @include position(absolute, 0px 0 0px 0px)
     display: block
-    width: $navigationWidthDesktop
-    padding-top: $headerHeightDesktop
+    width: $navigationWidth
+    padding-top: $headerHeight

@@ -7,6 +7,7 @@ table.table.table-striped.table-responsive
     tr
       th #
       th Titel
+      th Abkürzung
       th Brand
       th.text-right
 
@@ -15,6 +16,7 @@ table.table.table-striped.table-responsive
       tr
         td = product.id
         td: strong = product.title
+        td = product.shortcut
         td = product.brand.title
         td.text-right
           = link_to_with_icon 'edit', 'Bearbeiten', edit_product_path(product)

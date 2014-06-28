@@ -1,24 +1,22 @@
-div.row
+div.panel
 
-  div.col-md-12 style="background:red"
+  h1 = set_page_title t("activerecord.models.movement_type.other")
 
-    h2
-      | Transaktions-Typen
-      = link_to_with_icon 'plus', 'Neuen hinzufügen', new_movement_type_path , class: "btn btn-primary pull-right"
+  = link_to_with_icon 'plus', t("newitem"), new_movement_type_path , class: "btn btn-primary pull-right"
 
-    table.table.table-striped.table-responsive
-      thead
+  table.table.table-responsive
+    thead
+      tr
+        th #
+        th = t_formfield("title")
+        th.text-right
+
+    tbody
+      - for movement_type in @movement_types do
         tr
-          th #
-          th Titel
-          th.text-right
-
-      tbody
-        - for movement_type in @movement_types do
-          tr
-            td = movement_type.id
-            td = movement_type.title
-            td.text-right
-              = link_to_with_icon 'edit', 'Bearbeiten', edit_movement_type_path(movement_type)
-              |  
-              = link_to_with_icon 'remove', 'Löschen', movement_type_path(movement_type), method: :delete, class: "text-danger", data: { confirm: "Transaktions-Type wirklich löschen?" }, "data-confirm-title" => 'Transaktions-Typen löschen'
+          td = movement_type.id
+          td = movement_type.title
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_movement_type_path(movement_type), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), movement_type_path(movement_type), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

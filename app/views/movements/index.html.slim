@@ -1,28 +1,28 @@
-h2 class="ui header"
-  i class="settings icon"
-  div class="content"
-    = set_page_title t("activerecord.models.movement.other")
-    div class="sub header" Manage your account settings and set e-mail preferences.
+div.panel
 
-table.table.table-striped.table-responsive
-  thead
-    tr
-      th Datum
-      th Anzahl
-      th Produkt
-      th Typ
-      th Info
-      th.text-right
+  h1 = set_page_title t("activerecord.models.movement.other")
 
-  tbody
-    - for movement in @movements do
+  = link_to_with_icon 'plus', t("newitem"), new_movement_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive
+    thead
       tr
-        td = movement.movement_at
-        td = movement.count
-        td = movement.product.title
-        td = movement.movement_type.title
-        td = movement.note
-        td.text-right
-          = link_to_with_icon 'edit', 'Bearbeiten', edit_movement_path(movement)
-          |  
-          = link_to_with_icon 'remove', 'Löschen', movement_path(movement), method: :delete, class: "text-danger", data: { confirm: "Transaktion wirklich löschen?" }, "data-confirm-title" => 'Transaktion löschen'
+        th = t_formfield("date")
+        th = t_formfield("count")
+        th = t_formfield("product")
+        th = t_formfield("type")
+        th = t_formfield("note")
+        th.text-right
+
+    tbody
+      - for movement in @movements do
+        tr
+          td = l(movement.movement_at)
+          td = movement.count
+          td = movement.product.shortcut
+          td = movement.movement_type.title
+          td = movement.note
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_movement_path(movement), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), movement_path(movement), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

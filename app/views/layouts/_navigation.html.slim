@@ -10,7 +10,7 @@ div#nav-container
 
       ul
         li = nav_link_item t("overview"), movements_path, "movements"
-        li = nav_link_item t("activerecord.models.product.other"), movement_types_path, "movement_types"
+        li = nav_link_item 'Typen', movement_types_path, "movement_types"
 
     li.parent
       a href="" = label_with_item 'tower', t("activerecord.models.brand.other")

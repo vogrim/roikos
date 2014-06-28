@@ -25,4 +25,9 @@ module ApplicationHelper
     "<span class='glyphicon glyphicon-#{icon_name}'></span> #{label}".html_safe
   end
 
+  # Translate helper for formfields
+  def t_formfield(field)
+    t("simple_form.labels.defaults.#{field}")
+  end
+
 end

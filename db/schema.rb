@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20140605093830) do
 
   create_table "movement_types", force: true do |t|
     t.string   "title"
+    t.boolean  "increase_state", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -37,6 +38,7 @@ ActiveRecord::Schema.define(version: 20140605093830) do
 
   create_table "products", force: true do |t|
     t.string   "title"
+    t.string   "shortcut"
     t.integer  "brand_id"
     t.datetime "created_at"
     t.datetime "updated_at"

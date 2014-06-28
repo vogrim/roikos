@@ -1,7 +1,11 @@
-== simple_form_for @movement_type do |f|
+== simple_form_for @movement_type, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
 
   = f.input :title
 
-  = f.button :submit
+  = f.input :increase_state
 
-  = link_to 'Zurück', :back, class: "pull-right" 
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

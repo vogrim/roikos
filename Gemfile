@@ -48,6 +48,8 @@ gem 'bourbon'
 
 gem 'bootstrap-sass', '~> 3.1.1'
 
+gem 'bootstrap-datepicker-rails'
+
 gem "font-awesome-rails"
 
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'

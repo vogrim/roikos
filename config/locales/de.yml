@@ -8,6 +8,8 @@ de:
 
   signout: "Abmelden"
 
+  back: "Zurück"
+
   notifications:
     empty: "Keine kürzlichen Neuigkeiten"
 
@@ -17,6 +19,10 @@ de:
         one: "Warenbewegung"
         other: "Warenbewegungen"
 
+      movement_type:
+        one: "Warenbewegungs-Typ"
+        other: "Warenbewegungs-Typen"
+
       brand:
         one: "Marke"
         other: "Marken"
@@ -24,3 +30,21 @@ de:
       product:
         one: "Produkt"
         other: "Produkte"
+
+  newitem: "Neuen Eintrag hinzufügen"
+
+  edit:
+    label: "Bearbeiten"
+    item: "%{model} bearbeiten"
+
+  delete:
+    label: "Löschen"
+    confirm: "Wirklich löschen?"
+
+  date:
+    datepicker:
+      default: "dd.mm.yyyy"
+      long: "dd.MM.yyyy"
+    formats:
+      default: "%d.%m.%Y"
+      long: ! '%B %d, %Y'

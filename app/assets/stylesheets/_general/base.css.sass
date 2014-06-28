@@ -1,14 +1,27 @@
-div
-  @include box-sizing(border-box)
-
 body
   background: #f3f3f3
   font-family: "Roboto", "Helvetica Neue", Arial, sans-serif
   font-weight: 400
 
+div
+  @include box-sizing(border-box)
+
 a
-  color: $colorTheme1
+
+  &:focus, &:active
+    outline: 0
 
   &:hover
     color: $colorBlack
     text-decoration: none
+
+h1, h2, h3, h4, h5, h6
+  margin-top: 0
+
+h1
+  font-size: 25px
+
+// Hide Firefox select border
+select:-moz-focusring
+  color: transparent
+  text-shadow: 0 0 0 #000

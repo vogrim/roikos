@@ -35,7 +35,7 @@ class MovementTypesController < ApplicationController
   private
 
   def movement_type_params
-    params.require(:movement_type).permit(:title)
+    params.require(:movement_type).permit(:title, :increase_state)
   end
 
   def load_movement_type

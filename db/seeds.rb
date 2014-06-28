@@ -4,6 +4,6 @@
 user              = User.create(:firstname => 'Franz', :surname => 'Dumfart', :email => 'franz@roikos.com', :password => 'topsecret', :password_confirmation => 'topsecret')
 
 brand             = Brand.create(title: 'Der Wüsteneisbär')
-product           = Product.create(title: 'Buch: Der Wüsteneisbär: Das Abenteuer beginnt!', brand: brand)
+product           = Product.create(title: 'Buch: Der Wüsteneisbär: Das Abenteuer beginnt!', shortcut: 'WAB', brand: brand)
 movementType      = MovementType.create(title: 'Geschenk')
 movement          = Movement.create(movement_at: '2014-05-15', count: 10, product: product, note: 'Bücherei Test', movement_type: movementType)

@@ -2,6 +2,8 @@
 
   == f.input :title, placeholder: 'Titel', label: "Titel"
 
+  == f.input :shortcut, placeholder: 'Abkürzung', label: "Abkürzung"
+
   == f.input :brand_id, collection: @brands, include_blank: false, label: "Brand"
 
   == f.button :submit, "Speichern"

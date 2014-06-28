@@ -1,15 +1,17 @@
-== simple_form_for @movement do |f|
+== simple_form_for @movement, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
 
-  = f.input :movement_at, as: :bootstrap_datepicker, label: "Transaktion durchgeführt am"
+  = f.input :movement_at, as: :bootstrap_datepicker, label: t_formfield("date")
 
-  = f.input :product_id, collection: @products, include_blank: false, label: "Produkt"
+  = f.input :product_id, collection: @products, include_blank: false, label: t_formfield("product")
 
-  = f.input :count, label: "Anzahl"
+  = f.input :count
 
-  = f.input :movement_type_id, collection: @movement_types, include_blank: false, label: "Typ"
+  = f.input :movement_type_id, collection: @movement_types, include_blank: false, label: t_formfield("type")
 
-  = f.input :note, label: "Notiz"
+  = f.input :note
 
-  = f.button :submit
+  div.clearfix.mB20
 
-  = link_to 'Zurück', :back, class: "pull-right" 
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

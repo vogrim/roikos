@@ -1,33 +1,32 @@
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap-datepicker/core
+#= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 #= require turbolinks
+#= require navigation
+#= require form
+
 
 class Application
 
   constructor: ->
 
-    @$body = $('body')
-
     this.clickBindings()
 
-  clickBindings: ->
-    @$body.on 'click', '#navigation-toggle', =>
-      @$body.toggleClass 'navigation-open'
-      return false
+    new Navigation()
+    new Form()
 
+
+  clickBindings: ->
+
+    $headerBox = $('.header-box')
+    $headerBox.on 'click', ->
+      $headerBox.not($(this)).removeClass 'active'
+      $(this).toggleClass 'active'
+
+
+
+# Init app
 
 $(document).on 'page:load ready', ->
   window.app = new Application()
-
-
-  $('#nav-container .parent .active').each ->
-    $(this).closest('.parent').addClass 'parent-active'
-
-  $('#nav-container .parent > a').not('.parent-active > a').on 'click', ->
-    $(this).parent().toggleClass 'visible'
-    return false
-
-  $headerBox = $('.header-box')
-  $headerBox.on 'click', ->
-    $headerBox.not($(this)).removeClass 'active'
-    $(this).toggleClass 'active'
