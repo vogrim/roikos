@@ -1,11 +1,13 @@
 == simple_form_for @product do |f|
 
-  == f.input :title, placeholder: 'Titel', label: "Titel"
+  == f.input :title
 
-  == f.input :shortcut, placeholder: 'Abkürzung', label: "Abkürzung"
+  == f.input :shortcut
 
-  == f.input :brand_id, collection: @brands, include_blank: false, label: "Brand"
+  == f.input :brand_id, collection: @brands, include_blank: false, label: t_formfield("brand")
 
-  == f.button :submit, "Speichern"
+  div.clearfix.mB20
 
-  == link_to 'Zurück', :back, class: "pull-right" 
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

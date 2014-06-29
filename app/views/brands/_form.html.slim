@@ -1,7 +1,9 @@
 == simple_form_for @brand do |f|
 
-  == f.input :title, placeholder: 'Titel', label: "Titel"
+  == f.input :title
 
-  == f.button :submit, "Speichern"
+  div.clearfix.mB20
 
-  == link_to 'Zurück', :back, class: "pull-right" 
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

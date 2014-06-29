@@ -21,6 +21,8 @@ en:
         note: "Note"
         title: "Title"
         increase_state: "Maximize state of stock"
+        shortcut: "Shortcut"
+        brand: "Brand"
 
   helpers:
     submit:

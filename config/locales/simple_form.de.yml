@@ -21,6 +21,8 @@ de:
         note: "Notiz"
         title: "Titel"
         increase_state: "Erhöht Lagerstand"
+        shortcut: "Abkürzung"
+        brand: "Marke"
 
   helpers:
     submit:

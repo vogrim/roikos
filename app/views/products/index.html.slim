@@ -1,24 +1,26 @@
-h2
-  | Produkte
-  = link_to_with_icon 'plus', 'Neues hinzufügen', new_product_path , class: "btn btn-primary pull-right"
+div.panel
 
-table.table.table-striped.table-responsive
-  thead
-    tr
-      th #
-      th Titel
-      th Abkürzung
-      th Brand
-      th.text-right
+  h1 = set_page_title t("activerecord.models.product.other")
 
-  tbody
-    - for product in @products do
+  = link_to_with_icon 'plus', t("newitem"), new_product_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive
+    thead
       tr
-        td = product.id
-        td: strong = product.title
-        td = product.shortcut
-        td = product.brand.title
-        td.text-right
-          = link_to_with_icon 'edit', 'Bearbeiten', edit_product_path(product)
-          |  
-          = link_to_with_icon 'remove', 'Löschen', product_path(product), method: :delete, class: "text-danger", data: { confirm: "Produkt wirklich löschen?" }, "data-confirm-title" => 'Blubb'
+        th #
+        th = t_formfield("title")
+        th = t_formfield("shortcut")
+        th = t_formfield("brand")
+        th.text-right
+
+    tbody
+      - for product in @products do
+        tr
+          td = product.id
+          td: strong = product.title
+          td = product.shortcut
+          td = product.brand.title
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_product_path(product), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), product_path(product), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
