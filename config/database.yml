@@ -15,11 +15,11 @@ default: &default
   pool: 5
   username: root
   password: root
-  socket: /tmp/mysql.sock
 
 development:
   <<: *default
   database: roikos_dev
+  socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -45,7 +45,7 @@ test:
 # You can use this database configuration with:
 #
 #   production:
-#     url: <%= ENV['DATABASE_URL'] %>
+#     url: <%= ENV['DATABASE_URL'] %> mysql://b54a789abcd92a:5e71515f@eu-cdbr-west-01.cleardb.com/heroku_ac460b722e69afd?reconnect=true
 #
 production:
   <<: *default
