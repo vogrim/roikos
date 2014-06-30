@@ -1,5 +1,6 @@
 #= require jquery
 #= require jquery_ujs
+#= require bootstrap/tooltip
 #= require bootstrap-datepicker/core
 #= require bootstrap-datepicker/locales/bootstrap-datepicker.de.js
 #= require turbolinks
@@ -30,3 +31,5 @@ class Application
 
 $(document).on 'page:load ready', ->
   window.app = new Application()
+
+  $('[data-toggle=tooltip]').tooltip()

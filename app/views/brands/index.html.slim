@@ -4,17 +4,15 @@ div.panel
 
   = link_to_with_icon 'plus', t("newitem"), new_brand_path , class: "btn btn-primary pull-right"
 
-  table.table.table-responsive
+  table.table.table-responsive.table-hover
     thead
       tr
-        th #
         th = t_formfield("title")
         th.text-right
 
     tbody
       - for brand in @brands do
         tr
-          td = brand.id
           td: strong = brand.title
           td.text-right
             = link_to_with_icon 'edit', t("edit.label"), edit_brand_path(brand), class: "btn btn-default btn-xs"

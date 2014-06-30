@@ -4,7 +4,7 @@ div.panel
 
   = link_to_with_icon 'plus', t("newitem"), new_movement_path , class: "btn btn-primary pull-right"
 
-  table.table.table-responsive
+  table.table.table-responsive.table-hover
     thead
       tr
         th = t_formfield("date")
@@ -17,11 +17,12 @@ div.panel
     tbody
       - for movement in @movements do
         tr
-          td = l(movement.movement_at)
+          td: strong = l(movement.movement_at)
           td = movement.count
           td = movement.product.shortcut
           td = movement.movement_type.title
-          td = movement.note
+          td
+            a(href="" title="#{movement.note}" data-toggle="tooltip") = label_with_item("exclamation-sign", "")
           td.text-right
             = link_to_with_icon 'edit', t("edit.label"), edit_movement_path(movement), class: "btn btn-default btn-xs"
             |  

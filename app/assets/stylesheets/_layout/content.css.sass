@@ -14,8 +14,12 @@
     display: inline-block
     margin-bottom: 27px
 
+  thead th
+    color: rgba($colorBlack, .5)
+    color: $colorTheme3
+
   tbody td
-    color: rgba($colorBlack, .6)
+    color: rgba($colorBlack, .9)
 
   .backlink
     opacity: .5
@@ -23,6 +27,12 @@
 
   .form-horizontal [type=checkbox]
     vertical-align: -6px
+
+  .btn-default.btn-xs
+    opacity: .6
+
+    &:hover
+      opacity: 1
 
 @media (min-width: $screen-sm-min)
 

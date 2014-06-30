@@ -4,10 +4,9 @@ div.panel
 
   = link_to_with_icon 'plus', t("newitem"), new_product_path , class: "btn btn-primary pull-right"
 
-  table.table.table-responsive
+  table.table.table-responsive.table-hover
     thead
       tr
-        th #
         th = t_formfield("title")
         th = t_formfield("shortcut")
         th = t_formfield("brand")
@@ -16,7 +15,6 @@ div.panel
     tbody
       - for product in @products do
         tr
-          td = product.id
           td: strong = product.title
           td = product.shortcut
           td = product.brand.title
