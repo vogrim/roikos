@@ -31,6 +31,10 @@ en:
         one: "Product"
         other: "Products"
 
+      client:
+        one: "Client"
+        other: "Clients"
+
   newitem: "Add new item"
 
   edit:

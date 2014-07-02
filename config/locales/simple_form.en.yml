@@ -23,6 +23,8 @@ en:
         increase_state: "Maximize state of stock"
         shortcut: "Shortcut"
         brand: "Brand"
+        group: "Group"
+        name: "Name"
 
   helpers:
     submit:

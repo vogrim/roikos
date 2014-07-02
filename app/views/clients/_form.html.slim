@@ -1,0 +1,33 @@
+== simple_form_for @client, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  == f.input :company
+
+  == f.input :salutation
+
+  == f.input :title
+
+  == f.input :firstname
+
+  == f.input :surname
+
+  == f.input :email
+
+  == f.input :phone
+
+  == f.input :fax
+
+  == f.input :street
+
+  == f.input :zipcode
+
+  == f.input :location
+
+  == f.input :country
+
+  == f.input :group
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

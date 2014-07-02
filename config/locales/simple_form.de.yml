@@ -23,6 +23,8 @@ de:
         increase_state: "Erhöht Lagerstand"
         shortcut: "Abkürzung"
         brand: "Marke"
+        group: "Gruppe"
+        name: "Name"
 
   helpers:
     submit:

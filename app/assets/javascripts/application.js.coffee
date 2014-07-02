@@ -6,6 +6,7 @@
 #= require turbolinks
 #= require navigation
 #= require form
+#= require select2
 
 
 class Application

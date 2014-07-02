@@ -50,7 +50,7 @@ gem 'bootstrap-sass', '~> 3.1.1'
 
 gem 'bootstrap-datepicker-rails'
 
-gem "font-awesome-rails"
+gem 'font-awesome-rails'
 
 gem 'simple_form', '~> 3.1.0.rc1', github: 'plataformatec/simple_form'
 
@@ -58,8 +58,12 @@ gem 'devise'
 
 gem 'rails_12factor', group: :production
 
+gem 'country_select'
+
+gem 'select2-rails'
+
 group :development do
-  gem "pry-rails", "~> 0.2"
-  gem "better_errors"
-  gem "binding_of_caller" 
+  gem 'pry-rails', '~> 0.2'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end

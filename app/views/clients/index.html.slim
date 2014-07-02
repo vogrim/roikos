@@ -1,0 +1,24 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.client.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_client_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("name")
+        th = t_formfield("group")
+        th 
+        th.text-right
+
+    tbody
+      - for client in @clients do
+        tr
+          td: strong = client.title_for_list
+          td = client.group
+          td
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_client_path(client), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), client_path(client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

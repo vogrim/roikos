@@ -31,6 +31,10 @@ de:
         one: "Produkt"
         other: "Produkte"
 
+      client:
+        one: "Kunde"
+        other: "Kunden"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:

@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/:locale", to: 'dashboard#index', as: 'root'
 
   scope "/:locale", locale: /en|de/ do
-    resources :products, :brands, :movements, :movement_types
+    resources :products, :brands, :movements, :movement_types, :clients
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
