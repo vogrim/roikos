@@ -1,6 +1,6 @@
 class ClientsController < ApplicationController
 
-  before_filter :load_client, only: [:edit, :update, :destroy]
+  before_filter :load_client, only: [:edit, :update, :destroy, :show]
 
   def index
     @clients = Client.all
