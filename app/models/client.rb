@@ -10,6 +10,14 @@ class Client < ActiveRecord::Base
     [company, full_name].reject(&:blank?).join(', ')
   end
 
+  def main_title_for_detail
+    company.empty? ? full_name : company
+  end
+
+  def sub_title_for_detail
+    company.empty? ? "" : full_name
+  end
+
   def full_name
     [salutation, title, firstname, surname].compact.join(' ')
   end

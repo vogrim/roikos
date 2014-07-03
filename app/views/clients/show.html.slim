@@ -1,30 +1,55 @@
-div.col-md-6
+div#client-detail
 
-  div.panel
+  div.col-md-6
 
-    div.headerBox
-      h1 = @client.company
-      span = @client.created_at
+    div.panel.avatarbox
 
-    -if @client.avatar.url
-      img(src="#{@client.avatar.url}")
+      div.headerBox
 
-    div.statsBox
-      div.statElem
-        span.glyphicon.glyphicon-envelope
-        span Anrufen
-      div.statElem
-        span.glyphicon.glyphicon-phone-alt
-        span E-Mail
+        -if @client.avatar.url
+          img.avatar(src="#{@client.avatar.url}")
+
+        h1 = @client.main_title_for_detail
+        div.sub = @client.sub_title_for_detail
 
 
-div.col-md-6
+    div.panel.contactInfo
 
-  div.panel
+      table.table
 
-    #comments
-      = render @client.comments
+        - unless @client['email'].empty?
+          tr
+            td: strong Email
+            td: a(href="mailto:#{@client['email']}") = @client['email']
 
-    h2 Neues Kommentar
+        - unless @client['website'].empty?
+          tr
+            td: strong Website
+            td: a(href="#{@client.website}" target="_blank") = @client.website.sub(/^https?\:\/\//, '')
 
-    = render "comments/form", comment: @client.comments.new 
+        - for field in ['phone', 'fax', 'street', 'zipcode', 'location', 'country'] do
+          - unless @client[field].empty?
+            tr
+              td: strong = field
+              td = @client[field]
+
+    = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default btn-xs"
+    |  
+    = link_to_with_icon 'trash', t("delete.label"), client_path(@client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+
+  div.col-md-6
+
+
+
+
+
+
+    //
+      // span = @client.created_at
+
+      #comments
+        = render @client.comments
+
+      h2 Neues Kommentar
+
+      = render "comments/form", comment: @client.comments.new 
