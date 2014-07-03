@@ -1,0 +1,1 @@
+$("form#new_comment").replaceWith "<%= j render 'form', comment: @comment %>"

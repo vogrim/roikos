@@ -6,6 +6,9 @@ class ClientsController < ApplicationController
     @clients = Client.all
   end
 
+  def show
+  end
+
   def new
     @client = Client.new
   end
@@ -35,7 +38,7 @@ class ClientsController < ApplicationController
   private
 
   def client_params
-    params.require(:client).permit(:company, :salutation, :title, :firstname, :surname, :email, :website, :phone, :fax, :street, :zipcode, :location, :country, :group)
+    params.require(:client).permit(:company, :salutation, :title, :firstname, :surname, :email, :website, :phone, :fax, :street, :zipcode, :location, :country, :group, :avatar, comments_attributes: [:content])
   end
 
   def load_client

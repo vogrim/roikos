@@ -1,5 +1,30 @@
-div.panel
+div.col-md-6
 
-  h1 = @client.company
+  div.panel
 
-  
+    div.headerBox
+      h1 = @client.company
+      span = @client.created_at
+
+    -if @client.avatar.url
+      img(src="#{@client.avatar.url}")
+
+    div.statsBox
+      div.statElem
+        span.glyphicon.glyphicon-envelope
+        span Anrufen
+      div.statElem
+        span.glyphicon.glyphicon-phone-alt
+        span E-Mail
+
+
+div.col-md-6
+
+  div.panel
+
+    #comments
+      = render @client.comments
+
+    h2 Neues Kommentar
+
+    = render "comments/form", comment: @client.comments.new 

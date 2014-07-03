@@ -62,6 +62,10 @@ gem 'country_select'
 
 gem 'select2-rails'
 
+gem 'carrierwave'
+
+gem "fog", "~> 1.3.1"
+
 group :development do
   gem 'pry-rails', '~> 0.2'
   gem 'better_errors'

@@ -31,6 +31,12 @@ class Application
 # Init app
 
 $(document).on 'page:load ready', ->
+
+
+  # $("body").on "ajax:success", "form", ->
+  #   alert "ajax done"
+
+
   window.app = new Application()
 
   $('[data-toggle=tooltip]').tooltip()

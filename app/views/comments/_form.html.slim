@@ -1,0 +1,5 @@
+= simple_form_for comment, remote: true, html: { id: "new_comment" } do |f|
+   = f.input :commentable_id, as: :hidden
+   = f.input :commentable_type, as: :hidden
+   = f.input :content
+   = f.submit
