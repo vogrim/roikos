@@ -39,8 +39,9 @@ div#client-detail
 
   div.col-md-6
 
+    div.panel.noPadding.locationMap
 
-
+      img(src="http://maps.google.com/maps/api/staticmap?center=#{u(@client.street)}%20#{@client.zipcode}%20#{@client.location}&markers=color%3Ared|size%3Asmall|48.2097%2C15.948&sensor=true&size=700x320&zoom=15")
 
 
 
