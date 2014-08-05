@@ -1,0 +1,9 @@
+div.panel.avatarbox
+
+  div.headerBox
+
+    -if @client.avatar.url
+      img.avatar(src="#{@client.avatar.url}")
+
+    h1 = set_page_title @client.main_title_for_detail
+    div.sub = @client.sub_title_for_detail

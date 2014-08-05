@@ -1,0 +1,8 @@
+div.panel.list
+
+  h3 = t("activerecord.models.comment.other")
+
+  div#comments
+    = render @client.comments
+
+  = render "comments/form", comment: @client.comments.new 

@@ -42,19 +42,23 @@
     &:hover
       opacity: 1
 
-.commentList
-  padding-bottom: 15px
 
-.comment
-  overflow: hidden
-  padding-bottom: 15px
-  margin-bottom: 15px
-  border-bottom: 1px solid #f3f3f3
+.panel.list
 
-  .content
+  .item
+    overflow: hidden
+    padding-bottom: 15px
+    margin-bottom: 15px
+    border-bottom: 1px solid #f3f3f3
+
+    &:last-child
+      margin-bottom: 0
+      border-bottom: none
+
+  .main
     margin-bottom: 5px
 
-  .authorTime
+  .sub
     font-size: 12px
 
   .delete
@@ -69,6 +73,7 @@
   margin-right: 4%
 
 #new_comment
+  padding-bottom: 15px
 
   input
     width: 100%

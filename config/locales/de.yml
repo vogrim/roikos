@@ -70,3 +70,4 @@ de:
         other: "%{count} Tage"
       less_than_x_minutes: "Weniger als %{count} Minuten"
       x_minutes: "%{count} Minuten"
+      about_x_hours: "%{count} Stunden"

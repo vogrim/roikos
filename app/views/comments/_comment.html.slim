@@ -1,7 +1,7 @@
-= content_tag_for :div, comment do
+= content_tag_for :div, comment, class: 'item' do
   = link_to "x", comment, method: :delete, remote: true, class: "delete text-danger"
-  div.content = comment.content
-  div.authorTime.text-muted
+  div.main = comment.content
+  div.sub.text-muted
     strong = time_ago_in_words(comment.created_at)
     span = ', ' + comment.user.firstname + ' ' + comment.user.surname
   

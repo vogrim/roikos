@@ -8,6 +8,8 @@
 
   = f.input :movement_type_id, collection: @movement_types, include_blank: false, label: t_formfield("type")
 
+  = f.input :client_id, collection: @clients, :include_blank => "-", label: t_formfield("client"), label_method: :title_for_list
+
   = f.input :note
 
   div.clearfix.mB20

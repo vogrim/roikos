@@ -9,7 +9,6 @@ div.panel
       tr
         th = t_formfield("name")
         th = t_formfield("group")
-        th 
         th.text-right
 
     tbody
@@ -17,7 +16,6 @@ div.panel
         tr
           td: strong = link_to client.title_for_list, client_path(client)
           td = client.group
-          td
           td.text-right
             = link_to_with_icon 'user', "Detail", client_path(client), class: "btn btn-default btn-xs"
             |  

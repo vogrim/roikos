@@ -1,0 +1,19 @@
+div.panel.contactInfo
+
+  table.table
+
+    - unless @client['email'].empty?
+      tr
+        td: strong = t_formfield("email")
+        td: a(href="mailto:#{@client['email']}") = @client['email']
+
+    - unless @client['website'].empty?
+      tr
+        td: strong = t_formfield("website")
+        td: a(href="#{@client.website}" target="_blank") = @client.website.sub(/^https?\:\/\//, '')
+
+    - for field in ['phone', 'fax'] do
+      - unless @client[field].empty?
+        tr
+          td: strong = t_formfield(field)
+          td: a(href="tel:#{@client[field]}") = @client[field]

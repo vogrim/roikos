@@ -2,54 +2,11 @@ div#client-detail
 
   div.col-md-6
 
-    div.panel.avatarbox
+    = render "clients/panels/title"
 
-      div.headerBox
+    = render "clients/panels/contactDetail"
 
-        -if @client.avatar.url
-          img.avatar(src="#{@client.avatar.url}")
-
-        h1 = @client.main_title_for_detail
-        div.sub = @client.sub_title_for_detail
-
-
-    div.panel.contactInfo
-
-      table.table
-
-        - unless @client['email'].empty?
-          tr
-            td: strong = t_formfield("email")
-            td: a(href="mailto:#{@client['email']}") = @client['email']
-
-        - unless @client['website'].empty?
-          tr
-            td: strong = t_formfield("website")
-            td: a(href="#{@client.website}" target="_blank") = @client.website.sub(/^https?\:\/\//, '')
-
-        - for field in ['phone', 'fax'] do
-          - unless @client[field].empty?
-            tr
-              td: strong = t_formfield(field)
-              td: a(href="tel:#{@client[field]}") = @client[field]
-
-
-    div.row.hide
-      div.col-sm-6
-
-        div.panel.miniStatBox.clearfix
-
-          span.glyphicon.glyphicon-record
-          div.number 32
-          div.description = t("sales")
-
-      div.col-sm-6
-
-        div.panel.miniStatBox.clearfix
-
-          span.glyphicon.glyphicon-phone-alt
-          div.number 12
-          div.description = t("calls")
+    = render "clients/panels/miniStat"
 
 
     = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
@@ -61,26 +18,11 @@ div#client-detail
 
   div.col-md-6
 
-    -if @client.full_address.present?
+    = render "clients/panels/address"
 
-      div.panel.noPadding.locationMap
+    = render "clients/panels/movement"
 
-        img(src="http://maps.google.com/maps/api/staticmap?center=#{u(@client.full_address)}&markers=color%3Ared|size%3Asmall|48.2097%2C15.948&sensor=true&size=700x180&zoom=15")
-
-        div.content
-
-          a.pull-right.btn.btn-default.btn-xs(href="https://www.google.com/maps/preview#!q=#{u(@client.full_address)}" target="_blank") = t("openGoogleMaps")
-
-          div = @client.street || '-'
-          div = "#{@client.zipcode || '-'} #{@client.location || '-'}"
-          div = @client.country_string || '-'
+    = render "clients/panels/comment"
 
 
-    div.panel.commentList
 
-      h3 = set_page_title t("activerecord.models.comment.other")
-
-      div#comments
-        = render @client.comments
-
-      = render "comments/form", comment: @client.comments.new 

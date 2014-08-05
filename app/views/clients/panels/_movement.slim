@@ -1,0 +1,15 @@
+div.panel.list
+
+  a = link_to t("newitem"), new_movement_path, class: "pull-right btn btn-default btn-xs"
+
+  h3 = t("activerecord.models.movement.other")
+
+  - for movement in @client.movements do
+    div.item
+      div.main
+        strong = link_to "#{l(movement.movement_at)} - ", edit_movement_path(movement)
+        span = "#{movement.count} x #{movement.product.shortcut}"
+      div.sub.text-muted
+        span = movement.movement_type.title
+        - unless movement.note.empty?
+          span = ", #{movement.note}"
