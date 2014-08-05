@@ -17,6 +17,11 @@
     display: inline-block
     margin-bottom: 27px
 
+  h3
+    font-size: 20px
+    margin-bottom: 20px
+    color: $colorTheme3
+
   thead th
     color: rgba($colorBlack, .5)
     color: $colorTheme3
@@ -36,6 +41,41 @@
 
     &:hover
       opacity: 1
+
+.commentList
+  padding-bottom: 15px
+
+.comment
+  overflow: hidden
+  padding-bottom: 15px
+  margin-bottom: 15px
+  border-bottom: 1px solid #f3f3f3
+
+  .content
+    margin-bottom: 5px
+
+  .authorTime
+    font-size: 12px
+
+  .delete
+    float: right
+    opacity: .3
+
+    &:hover
+      opacity: 1
+
+.comment_content
+  width: 85%
+  margin-right: 4%
+
+#new_comment
+
+  input
+    width: 100%
+
+  [type=submit]
+    width: 10%
+
 
 @media (min-width: $screen-sm-min)
 

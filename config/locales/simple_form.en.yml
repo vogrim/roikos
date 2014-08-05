@@ -25,6 +25,9 @@ en:
         brand: "Brand"
         group: "Group"
         name: "Name"
+        email: "Email"
+        website: "Website"
+        phone: "Phone"
 
   helpers:
     submit:

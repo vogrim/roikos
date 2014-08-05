@@ -10,6 +10,12 @@ de:
 
   back: "Zurück"
 
+  sales: "Verkäufe"
+
+  calls: "Anrufe"
+
+  openGoogleMaps: "Google Maps öffnen"
+
   notifications:
     empty: "Keine kürzlichen Neuigkeiten"
 
@@ -35,6 +41,10 @@ de:
         one: "Kunde"
         other: "Kunden"
 
+      comment:
+        one: "Kommentar"
+        other: "Kommentare"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:
@@ -51,4 +61,12 @@ de:
       long: "dd.MM.yyyy"
     formats:
       default: "%d.%m.%Y"
-      long: ! '%B %d, %Y'
+      long: "%B %d, %Y"
+
+  datetime:
+    distance_in_words:
+      x_days:
+        one: "1 Tag"
+        other: "%{count} Tage"
+      less_than_x_minutes: "Weniger als %{count} Minuten"
+      x_minutes: "%{count} Minuten"

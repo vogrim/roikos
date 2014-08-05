@@ -25,6 +25,9 @@ de:
         brand: "Marke"
         group: "Gruppe"
         name: "Name"
+        email: "E-Mail"
+        website: "Website"
+        phone: "Telefonnummer"
 
   helpers:
     submit:

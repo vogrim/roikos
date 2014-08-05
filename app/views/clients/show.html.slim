@@ -19,38 +19,68 @@ div#client-detail
 
         - unless @client['email'].empty?
           tr
-            td: strong Email
+            td: strong = t_formfield("email")
             td: a(href="mailto:#{@client['email']}") = @client['email']
 
         - unless @client['website'].empty?
           tr
-            td: strong Website
+            td: strong = t_formfield("website")
             td: a(href="#{@client.website}" target="_blank") = @client.website.sub(/^https?\:\/\//, '')
 
-        - for field in ['phone', 'fax', 'street', 'zipcode', 'location', 'country'] do
+        - for field in ['phone', 'fax'] do
           - unless @client[field].empty?
             tr
-              td: strong = field
-              td = @client[field]
+              td: strong = t_formfield(field)
+              td: a(href="tel:#{@client[field]}") = @client[field]
 
-    = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default btn-xs"
+
+    div.row.hide
+      div.col-sm-6
+
+        div.panel.miniStatBox.clearfix
+
+          span.glyphicon.glyphicon-record
+          div.number 32
+          div.description = t("sales")
+
+      div.col-sm-6
+
+        div.panel.miniStatBox.clearfix
+
+          span.glyphicon.glyphicon-phone-alt
+          div.number 12
+          div.description = t("calls")
+
+
+    = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
     |  
-    = link_to_with_icon 'trash', t("delete.label"), client_path(@client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+    = link_to_with_icon 'trash', t("delete.label"), client_path(@client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default"
+    span.text-muted.created-at = @client.created_at
+
+
 
   div.col-md-6
 
-    div.panel.noPadding.locationMap
+    -if @client.full_address.present?
 
-      img(src="http://maps.google.com/maps/api/staticmap?center=#{u(@client.street)}%20#{@client.zipcode}%20#{@client.location}&markers=color%3Ared|size%3Asmall|48.2097%2C15.948&sensor=true&size=700x320&zoom=15")
+      div.panel.noPadding.locationMap
+
+        img(src="http://maps.google.com/maps/api/staticmap?center=#{u(@client.full_address)}&markers=color%3Ared|size%3Asmall|48.2097%2C15.948&sensor=true&size=700x180&zoom=15")
+
+        div.content
+
+          a.pull-right.btn.btn-default.btn-xs(href="https://www.google.com/maps/preview#!q=#{u(@client.full_address)}" target="_blank") = t("openGoogleMaps")
+
+          div = @client.street || '-'
+          div = "#{@client.zipcode || '-'} #{@client.location || '-'}"
+          div = @client.country_string || '-'
 
 
+    div.panel.commentList
 
-    //
-      // span = @client.created_at
+      h3 = set_page_title t("activerecord.models.comment.other")
 
-      #comments
+      div#comments
         = render @client.comments
-
-      h2 Neues Kommentar
 
       = render "comments/form", comment: @client.comments.new 

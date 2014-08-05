@@ -10,6 +10,12 @@ en:
 
   back: "Back"
 
+  sales: "Sales"
+
+  calls: "Calls"
+
+  openGoogleMaps: "Open Google Maps"
+
   notifications:
     empty: "No recent notifications"
 
@@ -34,6 +40,10 @@ en:
       client:
         one: "Client"
         other: "Clients"
+
+      comment:
+        one: "Comment"
+        other: "Comments"
 
   newitem: "Add new item"
 

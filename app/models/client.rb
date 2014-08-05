@@ -22,4 +22,12 @@ class Client < ActiveRecord::Base
     [salutation, title, firstname, surname].compact.join(' ')
   end
 
+  def full_address
+    [street, zipcode, location, country_string].compact.join(' ')
+  end
+
+  def country_string
+    Country[country]
+  end
+
 end
