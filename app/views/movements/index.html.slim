@@ -11,7 +11,6 @@ div.panel
         th = t_formfield("count")
         th = t_formfield("product")
         th = t_formfield("type")
-        th = t_formfield("note")
         th.text-right
 
     tbody
@@ -20,9 +19,10 @@ div.panel
           td: strong = l(movement.movement_at)
           td = movement.count
           td = movement.product.shortcut
-          td = movement.movement_type.title
           td
-            a(href="" title="#{movement.note}" data-toggle="tooltip") = label_with_item("exclamation-sign", "")
+            span = movement.movement_type.title
+            - unless movement.note.empty?
+              small.text-muted = ", #{movement.note}"
           td.text-right
             = link_to_with_icon 'edit', t("edit.label"), edit_movement_path(movement), class: "btn btn-default btn-xs"
             |  

@@ -1,7 +1,8 @@
 class MovementsController < ApplicationController
 
-  before_filter :load_movement, :load_clients, only: [:edit, :update, :destroy]
+  before_filter :load_movement, only: [:edit, :update, :destroy]
   before_filter :load_products, :load_movement_types
+  before_filter :load_clients, only: [:new, :edit]
 
   def index
     @movements = Movement.all
