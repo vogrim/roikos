@@ -45,6 +45,10 @@ en:
         one: "Comment"
         other: "Comments"
 
+      commission:
+        one: "Commission"
+        other: "Commissions"
+
   newitem: "Add new item"
 
   edit:

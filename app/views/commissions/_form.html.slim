@@ -1,0 +1,27 @@
+== simple_form_for @commission, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :start_at, as: :bootstrap_datepicker, label: t_formfield("start_at")
+
+  = f.input :end_at, as: :bootstrap_datepicker, label: t_formfield("end_at")
+
+  = f.input :client_id, collection: @clients, :include_blank => "-", label: t_formfield("client"), label_method: :title_for_list
+
+  = f.input :active
+
+  div.nestedFormFieldList
+
+    = f.simple_fields_for :commission_items do |item_fields| 
+
+      = item_fields.input :quantity
+
+      = item_fields.input :product_id, collection: Product.all, label: t_formfield("product")
+
+      = item_fields.input :_destroy, as: :boolean
+
+      hr
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

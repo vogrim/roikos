@@ -45,6 +45,10 @@ de:
         one: "Kommentar"
         other: "Kommentare"
 
+      commission:
+        one: "Kommission"
+        other: "Kommissionen"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:

@@ -28,6 +28,12 @@ de:
         email: "E-Mail"
         website: "Website"
         phone: "Telefonnummer"
+        start_at: "Datum Beginn"
+        end_at: "Datum Ende"
+        client: "Kunde"
+        active: "Aktiv"
+        _destroy: "Löschen"
+        quantity: "Anzahl"
 
   helpers:
     submit:

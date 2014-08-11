@@ -1,0 +1,31 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.commission.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_commission_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("start_at")
+        th = t_formfield("end_at")
+        th = t_formfield("client")
+        th = t_formfield("active")
+        th.text-right
+
+    tbody
+      - for commission in @commissions do
+        tr
+          td: strong = l(commission.start_at)
+          td: strong = l(commission.end_at)
+          td
+            div = commission.client.title_for_list
+            div.text-muted
+              - for item in commission.items do
+                small = "#{item.quantity} x #{item.product.title}"
+                br
+          td = commission.active ? "Aktiv" : "<span class='text-danger'>Inaktiv</span>".html_safe
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_commission_path(commission), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), commission_path(commission), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

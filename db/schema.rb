@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805092143) do
+ActiveRecord::Schema.define(version: 20140811111749) do
 
   create_table "brands", force: true do |t|
     t.string   "title"
@@ -44,6 +44,23 @@ ActiveRecord::Schema.define(version: 20140805092143) do
     t.string   "commentable_type"
     t.string   "content"
     t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "commission_items", force: true do |t|
+    t.integer  "commission_id"
+    t.integer  "product_id"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "commissions", force: true do |t|
+    t.date     "start_at"
+    t.date     "end_at"
+    t.integer  "client_id"
+    t.boolean  "active",     default: true
     t.datetime "created_at"
     t.datetime "updated_at"
   end

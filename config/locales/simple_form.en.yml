@@ -28,6 +28,12 @@ en:
         email: "Email"
         website: "Website"
         phone: "Phone"
+        start_at: "Date start"
+        end_at: "Date end"
+        client: "Client"
+        active: "Active"
+        _destroy: "Destroy"
+        quantity: "Quantity"
 
   helpers:
     submit:
