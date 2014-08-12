@@ -11,5 +11,5 @@ div.panel.list
         span = commission.active ? "Aktiv" : "<span class='text-danger'>Inaktiv</span>".html_safe
       div.sub.text-muted
         - for item in commission.items do
-          small = "#{item.quantity} x #{item.product.title}"
+          span = "#{item.quantity} x #{item.product.title}"
           br

@@ -9,4 +9,6 @@ class Commission < ActiveRecord::Base
 
   accepts_nested_attributes_for :commission_items, allow_destroy: true, reject_if: proc { |attributes| attributes['quantity'].blank? && attributes['project_id'].blank? }
 
+  default_scope { order('start_at DESC') }
+
 end

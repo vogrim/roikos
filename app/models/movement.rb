@@ -5,4 +5,6 @@ class Movement < ActiveRecord::Base
 
   validates_presence_of :movement_at, :count, :product_id
 
+  default_scope { order('movement_at DESC') }
+
 end
