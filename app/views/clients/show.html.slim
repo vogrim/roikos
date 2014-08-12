@@ -8,6 +8,8 @@ div#client-detail
 
     = render "clients/panels/miniStat"
 
+    = render "clients/panels/comment"
+
 
     = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
     |  
@@ -23,8 +25,6 @@ div#client-detail
     = render "clients/panels/movement"
 
     = render "clients/panels/commission"
-
-    = render "clients/panels/comment"
 
 
 
