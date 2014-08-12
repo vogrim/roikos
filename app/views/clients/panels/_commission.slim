@@ -1,0 +1,15 @@
+div.panel.list
+
+  a = link_to t("newitem"), new_commission_path, class: "pull-right btn btn-default btn-xs"
+
+  h3 = t("activerecord.models.commission.other")
+
+  - for commission in @client.commissions do
+    div.item
+      div.main
+        strong = link_to "#{l(commission.start_at)} - #{l(commission.end_at)}, ", edit_commission_path(commission)
+        span = commission.active ? "Aktiv" : "<span class='text-danger'>Inaktiv</span>".html_safe
+      div.sub.text-muted
+        - for item in commission.items do
+          small = "#{item.quantity} x #{item.product.title}"
+          br

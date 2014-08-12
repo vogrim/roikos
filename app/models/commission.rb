@@ -7,6 +7,6 @@ class Commission < ActiveRecord::Base
 
   alias_method :items, :commission_items
 
-  accepts_nested_attributes_for :commission_items, allow_destroy: true
+  accepts_nested_attributes_for :commission_items, allow_destroy: true, reject_if: proc { |attributes| attributes['quantity'].blank? && attributes['project_id'].blank? }
 
 end
