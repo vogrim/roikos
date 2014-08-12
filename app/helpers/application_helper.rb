@@ -1,7 +1,7 @@
 module ApplicationHelper
 
   def set_page_title(title, return_title = true)
-    content_for :title, title
+    content_for :title, title.html_safe
     if return_title == true
       title
     end
