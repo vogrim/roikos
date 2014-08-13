@@ -5,15 +5,7 @@ div#nav-container
     li
       = nav_link_item t("dashboard"), root_path, "dashboard", 'dashboard'
 
-    li
-      = nav_link_item t("activerecord.models.client.other"), clients_path, "clients", "user"
-
-    li.parent
-      a href="" = label_with_item 'transfer', t("activerecord.models.movement.other")
-
-      ul
-        li = nav_link_item t("overview"), movements_path, "movements"
-        li = nav_link_item 'Typen', movement_types_path, "movement_types"
+    li = nav_link_item t("activerecord.models.client.other"), clients_path, "clients", "user"
 
     li.parent
       a href="" = label_with_item 'tower', t("activerecord.models.brand.other") + " & " + t("activerecord.models.product.other")
@@ -25,8 +17,9 @@ div#nav-container
     li
       = nav_link_item t("activerecord.models.event.other"), events_path, "events", "eye-open"
 
-    li
-      = nav_link_item t("activerecord.models.commission.other"), commissions_path, "commissions", "lock"
+    li = nav_link_item t("activerecord.models.commission.other"), commissions_path, "commissions", "lock"
+
+    li = nav_link_item t("activerecord.models.movement.other"), movements_path, "movements", "transfer"
 
     li: a href=""
       = label_with_item 'shopping-cart', 'Shop'
