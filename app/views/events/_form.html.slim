@@ -1,0 +1,19 @@
+== simple_form_for @event, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :event_at, label: t_formfield("date")
+
+  = f.input :agreed_at, as: :bootstrap_datepicker
+
+  = f.input :client_id, collection: @clients, :include_blank => "-", label: t_formfield("client"), label_method: :title_for_list
+
+  = f.input :audience_count
+
+  = f.input :audience_age_class, label: t_formfield("age_class")
+
+  = f.input :note
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

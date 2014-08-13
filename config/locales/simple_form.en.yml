@@ -34,6 +34,9 @@ en:
         active: "Active"
         _destroy: "Destroy"
         quantity: "Quantity"
+        age_class: "Aage class"
+        audience_count: "Audience count"
+        agreed_at: "Agreed at"
 
   helpers:
     submit:

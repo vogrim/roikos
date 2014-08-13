@@ -1,0 +1,26 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.event.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_event_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("date")
+        th = t_formfield("client")
+        th = t_formfield("age_class")
+        th = t_formfield("audience_count")
+        th.text-right
+
+    tbody
+      - for event in @events do
+        tr
+          td: strong = l(event.event_at)
+          td = event.client.title_for_list
+          td = event.audience_count
+          td = event.audience_age_class
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_event_path(event), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), event_path(event), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

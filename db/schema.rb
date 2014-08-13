@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140811111749) do
+ActiveRecord::Schema.define(version: 20140812133316) do
 
   create_table "brands", force: true do |t|
     t.string   "title"
@@ -61,6 +61,17 @@ ActiveRecord::Schema.define(version: 20140811111749) do
     t.date     "end_at"
     t.integer  "client_id"
     t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "events", force: true do |t|
+    t.datetime "event_at"
+    t.date     "agreed_at"
+    t.integer  "client_id"
+    t.integer  "audience_count"
+    t.string   "audience_age_class"
+    t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

@@ -14,6 +14,8 @@ en:
 
   calls: "Calls"
 
+  attendee: "Attendee"
+
   openGoogleMaps: "Open Google Maps"
 
   notifications:
@@ -48,6 +50,10 @@ en:
       commission:
         one: "Commission"
         other: "Commissions"
+
+      event:
+        one: "Event"
+        other: "Events"
 
   newitem: "Add new item"
 

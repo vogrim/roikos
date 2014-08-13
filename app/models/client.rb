@@ -3,6 +3,7 @@ class Client < ActiveRecord::Base
   has_many :comments, :as => :commentable
   has_many :movements
   has_many :commissions
+  has_many :events
 
   accepts_nested_attributes_for :comments
 

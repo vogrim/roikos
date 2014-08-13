@@ -1,0 +1,13 @@
+div.panel.list
+
+  a = link_to t("newitem"), new_event_path, class: "pull-right btn btn-default btn-xs"
+
+  h3 = t("activerecord.models.event.other")
+
+  - for event in @client.events do
+    div.item
+      div.main
+        strong = link_to "#{l(event.event_at)}, ", edit_event_path(event)
+        span = "#{event.audience_count} #{t('attendee')}"
+      div.sub.text-muted
+        span = "#{t_formfield('age_class')}: #{event.audience_age_class}"

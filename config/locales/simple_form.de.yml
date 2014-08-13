@@ -34,6 +34,9 @@ de:
         active: "Aktiv"
         _destroy: "Löschen"
         quantity: "Anzahl"
+        age_class: "Altersgruppe"
+        audience_count: "Anzahl Besucher"
+        agreed_at: "Ausgemacht am"
 
   helpers:
     submit:
