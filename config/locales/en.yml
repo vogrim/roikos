@@ -55,6 +55,10 @@ en:
         one: "Event"
         other: "Events"
 
+      bill:
+        one: "Bill"
+        other: "Bills"
+
   newitem: "Add new item"
 
   edit:

@@ -11,7 +11,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140812133316) do
+ActiveRecord::Schema.define(version: 20140814092217) do
+
+  create_table "bill_items", force: true do |t|
+    t.integer  "bill_id"
+    t.integer  "product_id"
+    t.text     "label"
+    t.integer  "tax"
+    t.float    "unit_price"
+    t.integer  "quantity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "bills", force: true do |t|
+    t.integer  "client_id"
+    t.date     "sent_at"
+    t.date     "payed_at"
+    t.string   "label"
+    t.string   "shipping_label"
+    t.integer  "shipping_price"
+    t.string   "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "brands", force: true do |t|
     t.string   "title"
@@ -96,7 +119,9 @@ ActiveRecord::Schema.define(version: 20140812133316) do
 
   create_table "products", force: true do |t|
     t.string   "title"
+    t.string   "author"
     t.string   "shortcut"
+    t.string   "isbn_13"
     t.integer  "brand_id"
     t.datetime "created_at"
     t.datetime "updated_at"

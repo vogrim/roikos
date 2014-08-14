@@ -10,6 +10,6 @@ div.panel.list
         strong = link_to "#{l(event.event_at)}, ", edit_event_path(event)
         span = "#{event.audience_count} #{t('attendee')}"
       div.sub.text-muted
-        - unless event.note.empty?
-          strong = "#{event.note}, "
-        span = "#{t_formfield('age_class')}: #{event.audience_age_class}"
+        - for item in event.items do
+          span = "#{item.quantity} x #{item.product.title}"
+          br

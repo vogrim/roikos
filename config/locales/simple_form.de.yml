@@ -37,6 +37,13 @@ de:
         age_class: "Altersgruppe"
         audience_count: "Anzahl Besucher"
         agreed_at: "Ausgemacht am"
+        sent_at: "Versendet am"
+        payed_at: "Bezahlt am"
+        shipping_label: "Versandbezeichnung"
+        shipping_price: "Versandkosten"
+        tax: "MwSt."
+        unit_price: "Einzelpreis"
+        label: "Bezeichnung"
 
   helpers:
     submit:

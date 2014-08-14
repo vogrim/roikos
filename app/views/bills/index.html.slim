@@ -1,0 +1,29 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.bill.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_bill_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th #
+        th = t_formfield("client")
+        th = t_formfield("sent_at")
+        th = t_formfield("payed_at")
+        th
+        th.text-right
+
+    tbody
+      - for bill in @bills do
+        tr
+          td: strong = bill.label
+          td = bill.client.title_for_list
+          td = bill.sent_at.nil? ? "-" : l(bill.sent_at)
+          td = bill.payed_at.nil? ? "-" : l(bill.payed_at)
+          
+          td
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_bill_path(bill), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), bill_path(bill), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

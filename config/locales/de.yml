@@ -55,6 +55,10 @@ de:
         one: "Veranstaltung"
         other: "Veranstaltungen"
 
+      bill:
+        one: "Rechnung"
+        other: "Rechnungen"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:

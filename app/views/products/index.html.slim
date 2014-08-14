@@ -15,7 +15,9 @@ div.panel
     tbody
       - for product in @products do
         tr
-          td: strong = product.title
+          td
+            strong = product.title
+            small.text-muted = " - #{product.author}"
           td = product.shortcut
           td = product.brand.title
           td.text-right

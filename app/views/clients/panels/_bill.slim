@@ -1,0 +1,15 @@
+div.panel.list
+
+  a = link_to t("newitem"), new_bill_path, class: "pull-right btn btn-default btn-xs"
+
+  h3 = t("activerecord.models.bill.other")
+
+  - for bill in @client.bills do
+    div.item
+      div.main
+        strong = link_to bill.sent_at.nil? ? "-" : l(bill.sent_at), edit_bill_path(bill)
+        span = ", #{t('activerecord.models.bill.one')} #{bill.label}"
+      div.sub.text-muted
+        - for item in bill.items do
+          span = "#{item.quantity} x #{item.product.title}"
+          br

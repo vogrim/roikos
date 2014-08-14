@@ -37,6 +37,13 @@ en:
         age_class: "Aage class"
         audience_count: "Audience count"
         agreed_at: "Agreed at"
+        sent_at: "Sent at"
+        payed_at: "Payed at"
+        shipping_label: "Shippinglabel"
+        shipping_price: "Shippingprice"
+        tax: "Tax"
+        unit_price: "Unit price"
+        label: "Label"
 
   helpers:
     submit:

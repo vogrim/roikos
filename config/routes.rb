@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/:locale", to: 'dashboard#index', as: 'root'
 
   scope "/:locale", locale: /en|de/ do
-    resources :products, :brands, :movements, :movement_types, :clients, :comments, :commissions, :commission_items, :events
+    resources :products, :brands, :movements, :movement_types, :clients, :comments, :commissions, :commission_items, :events, :bills
   end
 
 
