@@ -18,7 +18,7 @@ div.panel
       - for bill in @bills do
         tr
           td: strong = bill.label
-          td = bill.client.title_for_list
+          td = bill.client ? bill.client.title_for_list : "Kein Kunde"
           td = bill.sent_at.nil? ? "-" : l(bill.sent_at)
           td = bill.payed_at.nil? ? "-" : l(bill.payed_at)
           
