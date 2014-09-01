@@ -4,4 +4,8 @@ class Event < ActiveRecord::Base
 
   default_scope { order('event_at DESC') }
 
+  def is_in_future
+    Date.today.to_s < event_at
+  end
+
 end

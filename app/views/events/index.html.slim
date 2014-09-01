@@ -15,7 +15,7 @@ div.panel
 
     tbody
       - for event in @events do
-        tr
+        tr(class="#{event.is_in_future ? 'future' : 'past'}")
           td: strong = l(event.event_at)
           td = event.client.title_for_list
           td = event.audience_count
