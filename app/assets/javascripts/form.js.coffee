@@ -2,9 +2,13 @@ class window.Form
 
   constructor: ->
 
+    this.init()
     this.datepicker()
     this.selectFields()
 
+  init: ->
+
+    $('[type=search]').focus()
 
   datepicker: =>
 

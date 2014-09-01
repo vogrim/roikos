@@ -2,7 +2,9 @@ div.panel
 
   h1 = set_page_title t("activerecord.models.client.other")
 
-  = link_to_with_icon 'plus', t("newitem"), new_client_path , class: "btn btn-primary pull-right"
+  div.pull-right
+    = link_to_with_icon 'plus', t("newitem"), new_client_path , class: "btn btn-primary pull-right"
+    = render "search"
 
   table.table.table-responsive.table-hover
     thead
