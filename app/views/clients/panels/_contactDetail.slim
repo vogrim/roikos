@@ -16,4 +16,4 @@ div.panel.contactInfo
       - unless @client[field].empty?
         tr
           td: strong = t_formfield(field)
-          td: a(href="tel:#{@client[field]}") = @client[field]
+          td: a(href="skype:#{@client[field]}") = @client[field]
