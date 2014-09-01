@@ -12,5 +12,5 @@ div.row
     div.panel.miniStatBox.clearfix
 
       a(href="tel:#{@client.phone}"): span.glyphicon.glyphicon-phone-alt
-      div.number = @client.client_interactions.count
+      div.number = @client.client_interactions.where('method = ?', 'Anruf').count
       div.description = t("calls")
