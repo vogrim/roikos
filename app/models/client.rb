@@ -5,6 +5,7 @@ class Client < ActiveRecord::Base
   has_many :commissions
   has_many :events
   has_many :bills
+  has_many :client_interactions
 
   accepts_nested_attributes_for :comments
 
@@ -32,6 +33,16 @@ class Client < ActiveRecord::Base
 
   def country_string
     Country[country]
+  end
+
+  def total_product_sales
+    total_sales = 0
+    for bill in bills do
+      for bill_item in bill.bill_items do
+        total_sales += bill_item.quantity
+      end
+    end
+    total_sales
   end
 
 end

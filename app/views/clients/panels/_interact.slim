@@ -1,0 +1,17 @@
+div.panel
+
+  h3 Interaktion hinzufügen
+
+  == simple_form_for ClientInteraction.new do |f|
+
+    = f.hidden_field :client_id, value: @client.id
+
+    = f.hidden_field :user_id, value: current_user.id
+
+    = f.input :note, label: false
+
+    = f.input :method, collection: ['Anruf', 'Mail', 'Social Media'], label: false
+
+    div.clearfix.mB20.hide
+
+      = f.submit "+", class: "btn"

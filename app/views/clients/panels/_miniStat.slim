@@ -1,16 +1,16 @@
-div.row.hide
+div.row
   div.col-sm-6
 
     div.panel.miniStatBox.clearfix
 
       span.glyphicon.glyphicon-record
-      div.number 32
+      div.number = @client.total_product_sales
       div.description = t("sales")
 
   div.col-sm-6
 
     div.panel.miniStatBox.clearfix
 
-      span.glyphicon.glyphicon-phone-alt
-      div.number 12
+      a(href="tel:#{@client.phone}"): span.glyphicon.glyphicon-phone-alt
+      div.number = @client.client_interactions.count
       div.description = t("calls")

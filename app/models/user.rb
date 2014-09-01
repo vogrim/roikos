@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
 
   has_many :comments
 
+  def full_name
+    "#{firstname} #{surname}"
+  end
+
 end

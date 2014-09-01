@@ -59,6 +59,10 @@ de:
         one: "Rechnung"
         other: "Rechnungen"
 
+      client_interaction:
+        one: "Kunden-Interaktion"
+        other: "Kunden-Interaktionen"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:

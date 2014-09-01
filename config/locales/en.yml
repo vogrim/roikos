@@ -59,6 +59,10 @@ en:
         one: "Bill"
         other: "Bills"
 
+      client_interaction:
+        one: "Client interaction"
+        other: "Client interactions"
+
   newitem: "Add new item"
 
   edit:

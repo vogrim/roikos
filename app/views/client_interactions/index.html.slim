@@ -1,0 +1,29 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.client_interaction.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_client_interaction_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("date")
+        th = t_formfield("client")
+        th = t_formfield("type")
+        th.text-right
+
+    tbody
+      - for client_interaction in @client_interactions do
+        tr
+          td
+            strong = client_interaction.interaction_at.nil? ? "-" : l(client_interaction.interaction_at)
+            - unless client_interaction.scheduled_at.nil?
+              div: small.text-muted = l(client_interaction.scheduled_at)
+          td
+            div = client_interaction.client.title_for_list
+            small.text-muted: i = "\"#{client_interaction.note}\" "
+          td = client_interaction.method
+          td.text-right
+            = link_to_with_icon 'edit', t("edit.label"), edit_client_interaction_path(client_interaction), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', t("delete.label"), client_interaction_path(client_interaction), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

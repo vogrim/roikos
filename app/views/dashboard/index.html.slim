@@ -1,3 +1,23 @@
-div.panel
+div.col-md-6
 
-  h1 = set_page_title t("dashboard")
+  div.panel
+
+    h1 = set_page_title t("dashboard")
+
+  div.panel.list
+
+    a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
+    h3 Heute zu kontaktieren
+
+    - unless @future_client_interactions.empty?
+      - for client_interaction in @future_client_interactions do
+        - if client_interaction.is_scheduled_today
+          div.item
+            div.main
+              strong = "#{l(client_interaction.scheduled_at)} - "
+              = link_to client_interaction.client.title_for_list, client_path(client_interaction.client)
+            div.sub.text-muted
+              strong = link_to client_interaction.method, edit_client_interaction_path(client_interaction), class: "text-muted"
+              span = ": #{client_interaction.note}"
+    - else
+      div Keine Anrufe

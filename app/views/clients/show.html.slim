@@ -10,6 +10,10 @@ div#client-detail
 
     = render "clients/panels/comment"
 
+    = render "clients/panels/interact"
+
+    = render "clients/panels/interaction"
+
 
     = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
     |  
