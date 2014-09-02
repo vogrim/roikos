@@ -93,3 +93,8 @@ de:
       less_than_x_minutes: "Weniger als %{count} Minuten"
       x_minutes: "%{count} Minuten"
       about_x_hours: "%{count} Stunden"
+
+  will_paginate:
+    previous_label: "&#8592; Zurück"
+    next_label: "Weiter &#8594;"
+    page_gap: "&hellip;"

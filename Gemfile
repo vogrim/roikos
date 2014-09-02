@@ -70,6 +70,8 @@ gem 'rails-i18n'
 
 gem 'ransack'
 
+gem 'will_paginate-bootstrap'
+
 group :development do
   gem 'pry-rails', '~> 0.2'
   gem 'better_errors'

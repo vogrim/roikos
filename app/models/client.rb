@@ -11,6 +11,9 @@ class Client < ActiveRecord::Base
 
   mount_uploader :avatar, AvatarUploader
 
+  default_scope { order('created_at DESC') }
+
+
   def title_for_list
     [company, full_name].reject(&:blank?).join(', ')
   end

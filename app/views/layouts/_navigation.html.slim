@@ -16,18 +16,4 @@ div#nav-container
 
     li = nav_link_item t("activerecord.models.movement.other"), movements_path, "movements", "transfer"
 
-    li.parent
-      a href="" = label_with_item 'tower', t("activerecord.models.brand.other") + " & " + t("activerecord.models.product.other")
-
-      ul
-        li = nav_link_item t("activerecord.models.brand.other"), brands_path, "brands"
-        li = nav_link_item t("activerecord.models.product.other"), products_path, "products"
-
-    li: a href=""
-      = label_with_item 'shopping-cart', 'Shop'
-
-    li: a href=""
-      = label_with_item 'leaf', 'Social Media'
-
-    li: a href=""
-      = label_with_item 'signal', 'Traffic'
+    li = nav_link_item t("activerecord.models.product.other"), products_path, "products", "tower"

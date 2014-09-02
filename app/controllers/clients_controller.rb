@@ -4,7 +4,7 @@ class ClientsController < ApplicationController
 
   def index
     @q = Client.search(params[:q])
-    @clients = @q.result(distinct: true)
+    @clients = @q.result(distinct: true).paginate(:page => params[:page])
   end
 
   def show
