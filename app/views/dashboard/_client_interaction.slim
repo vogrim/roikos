@@ -1,6 +1,6 @@
 div.item
   div.main
-    strong = "#{l(client_interaction.scheduled_at)} - "
+    div: strong = "#{l(client_interaction.scheduled_at)}"
     = link_to client_interaction.client.title_for_list, client_path(client_interaction.client)
   div.sub.text-muted
     strong = link_to client_interaction.method, edit_client_interaction_path(client_interaction), class: "text-muted"
