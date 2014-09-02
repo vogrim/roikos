@@ -12,5 +12,5 @@ div.row
     div.panel.miniStatBox.clearfix
 
       a(href="skype:#{@client.phone}"): span.glyphicon.glyphicon-phone-alt
-      div.number = @client.client_interactions.where('method = ?', 'Anruf').count
+      div.number = @client.client_interactions.where('method = ?', 'Anruf').where('interaction_at > 0').count
       div.description = t("calls")
