@@ -32,11 +32,18 @@ class Application
 
 $(document).on 'page:load ready', ->
 
-
-  # $("body").on "ajax:success", "form", ->
-  #   alert "ajax done"
+  $("body").on "click", ".shift-time a", ->
+    $.ajax
+      url: '/de/client_interactions/shift_scheduled_time'
+      data:
+        shift: $(this).data('shift')
+        id: $(this).data('id')
+      success: (data) ->
+        window.location.reload()
+    return false
 
 
   window.app = new Application()
 
   $('[data-toggle=tooltip]').tooltip()
+

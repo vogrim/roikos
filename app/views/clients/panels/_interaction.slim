@@ -13,3 +13,18 @@ div.panel.list
         - unless client_interaction.scheduled_at.nil?
           span = "Geplant am: #{l(client_interaction.scheduled_at)}: "
         span = link_to client_interaction.method, edit_client_interaction_path(client_interaction), class: "text-muted"
+        div.shift-time
+          | Termin verschieben: 
+          a(href="" data-shift="600" data-id="#{client_interaction.id}") 10min
+          | , 
+          a(href="" data-shift="900" data-id="#{client_interaction.id}") 15min
+          | , 
+          a(href="" data-shift="1800" data-id="#{client_interaction.id}") 30min
+          | , 
+          a(href="" data-shift="3600" data-id="#{client_interaction.id}") 1 Stunde
+          | , 
+          a(href="" data-shift="10800" data-id="#{client_interaction.id}") 3 Stunden
+          | , 
+          a(href="" data-shift="86400" data-id="#{client_interaction.id}") 1 Tag
+          | , 
+          a(href="" data-shift="604800" data-id="#{client_interaction.id}") 1 Woche

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   get "/:locale", to: 'dashboard#index', as: 'root'
 
+  get "/:locale/client_interactions/shift_scheduled_time", to: 'client_interactions#shift_scheduled_time'
+
   scope "/:locale", locale: /de|en/ do
     resources :products, :brands, :movements, :movement_types, :clients, :comments, :commissions
     resources :commission_items, :events, :bills, :client_interactions

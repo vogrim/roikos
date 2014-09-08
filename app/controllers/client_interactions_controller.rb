@@ -34,6 +34,17 @@ class ClientInteractionsController < ApplicationController
     redirect_to :action => "index"
   end
 
+  def shift_scheduled_time
+
+    shift = params[:shift].to_i
+
+    @client_interaction = ClientInteraction.find(params[:id])
+    @client_interaction.scheduled_at = @client_interaction.scheduled_at + shift
+    @client_interaction.save
+
+    render :nothing => true
+  end
+
   private
 
   def client_interaction_params
