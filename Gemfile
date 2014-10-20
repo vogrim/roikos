@@ -72,6 +72,8 @@ gem 'ransack'
 
 gem 'will_paginate-bootstrap'
 
+gem 'newrelic_rpm'
+
 group :development do
   gem 'pry-rails', '~> 0.2'
   gem 'better_errors'
