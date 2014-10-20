@@ -1,24 +1,22 @@
-div.col-md-6
+div.panel
 
-  div.panel
+  h1 = set_page_title t("dashboard")
 
-    h1 = set_page_title t("dashboard")
+div.panel.list
 
-  div.panel.list
+  a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
+  h3 Heute zu kontaktieren
 
-    a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
-    h3 Heute zu kontaktieren
-
-    - unless @future_client_interactions.empty?
-      - for client_interaction in @future_client_interactions do
-        - if client_interaction.is_scheduled_today
-            = render "client_interaction", :client_interaction => client_interaction
-
-
-  div.panel.list
-
-    h3 Bald zu kontaktieren
-
+  - unless @future_client_interactions.empty?
     - for client_interaction in @future_client_interactions do
-      - unless client_interaction.is_scheduled_today
+      - if client_interaction.is_scheduled_today
           = render "client_interaction", :client_interaction => client_interaction
+
+
+div.panel.list
+
+  h3 Bald zu kontaktieren
+
+  - for client_interaction in @future_client_interactions do
+    - unless client_interaction.is_scheduled_today
+        = render "client_interaction", :client_interaction => client_interaction

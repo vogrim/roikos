@@ -44,6 +44,8 @@ de:
         tax: "MwSt."
         unit_price: "Einzelpreis"
         label: "Bezeichnung"
+        scheduled_at: "Geplant am"
+        interaction_at: "Interagiert am"
 
   helpers:
     submit:

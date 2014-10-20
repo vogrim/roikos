@@ -44,6 +44,8 @@ en:
         tax: "Tax"
         unit_price: "Unit price"
         label: "Label"
+        scheduled_at: "Scheduled at"
+        interaction_at: "Interaction at"
 
   helpers:
     submit:

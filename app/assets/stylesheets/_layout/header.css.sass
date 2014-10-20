@@ -70,6 +70,7 @@
   background: $colorWhite
   border: 1px solid rgba($colorBlack, .1)
   display: none
+  z-index: 20
 
   li.active
     border-right: 3px solid $colorTheme2
@@ -95,7 +96,7 @@
 
   #header-container
     @include position(fixed, 0px 0px 0 0px)
-    z-index: 10
+    z-index: 30
     height: $headerHeight
 
   #logo-container
@@ -112,3 +113,4 @@
 
   #header-content
     @include position(absolute, 0px 0px 0 $navigationWidth)
+    z-index: 21
