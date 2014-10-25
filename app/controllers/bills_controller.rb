@@ -8,7 +8,7 @@ class BillsController < ApplicationController
   end
 
   def new
-    @bill = Bill.new
+    @bill = Bill.new params[:bill] ? bill_params : {}
     @bill.bill_items.build
   end
 

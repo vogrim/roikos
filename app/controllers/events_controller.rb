@@ -8,7 +8,7 @@ class EventsController < ApplicationController
   end
 
   def new
-    @event = Event.new
+    @event = Event.new params[:event] ? event_params : {}
   end
 
   def create

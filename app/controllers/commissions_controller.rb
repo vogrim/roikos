@@ -8,7 +8,7 @@ class CommissionsController < ApplicationController
   end
 
   def new
-    @commission = Commission.new
+    @commission = Commission.new params[:commission] ? commission_params : {}
     @commission.commission_items.build
   end
 

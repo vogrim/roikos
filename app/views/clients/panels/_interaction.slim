@@ -1,6 +1,6 @@
 div.panel.list
 
-  a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
+  a = link_to t("newitem"), new_client_interaction_path(client_interaction: { client_id: @client.id, interaction_at: Time.new }), class: "pull-right btn btn-default btn-xs"
 
   h3 = t("activerecord.models.client_interaction.other")
 

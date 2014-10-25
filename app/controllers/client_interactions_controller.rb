@@ -9,7 +9,7 @@ class ClientInteractionsController < ApplicationController
   end
 
   def new
-    @client_interaction = ClientInteraction.new
+    @client_interaction = ClientInteraction.new params[:client_interaction] ? client_interaction_params : {}
   end
 
   def create

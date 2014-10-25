@@ -1,6 +1,6 @@
 div.panel.list
 
-  a = link_to t("newitem"), new_event_path, class: "pull-right btn btn-default btn-xs"
+  a = link_to t("newitem"), new_event_path(event: { client_id: @client.id, agreed_at: Time.new }), class: "pull-right btn btn-default btn-xs"
 
   h3 = t("activerecord.models.event.other")
 

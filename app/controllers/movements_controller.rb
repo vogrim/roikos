@@ -9,7 +9,7 @@ class MovementsController < ApplicationController
   end
 
   def new
-    @movement = Movement.new count: 1
+    @movement = Movement.new params[:movement] ? movement_params : {count: 1}
   end
 
   def create

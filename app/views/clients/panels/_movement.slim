@@ -1,6 +1,6 @@
 div.panel.list
 
-  a = link_to t("newitem"), new_movement_path, class: "pull-right btn btn-default btn-xs"
+  a = link_to t("newitem"), new_movement_path(movement: { client_id: @client.id, movement_at: Time.new, count: 1 }), class: "pull-right btn btn-default btn-xs"
 
   h3 = t("activerecord.models.movement.other")
 
