@@ -5,6 +5,7 @@ class ClientsController < ApplicationController
   def index
     @q = Client.search(params[:q])
     @clients = @q.result(distinct: true).paginate(:page => params[:page])
+    redirect_to client_path(@clients.first) if @clients.length == 1
   end
 
   def show
