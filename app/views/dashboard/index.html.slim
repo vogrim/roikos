@@ -8,6 +8,7 @@ div#dashboard
 
     a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
     h3 Heute zu kontaktieren
+    - current_day = "today"
     - unless @future_client_interactions.empty?
       - for client_interaction in @future_client_interactions do
         - if client_interaction.is_scheduled_today
