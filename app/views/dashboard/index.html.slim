@@ -8,7 +8,7 @@ div#dashboard
 
     a = link_to t("newitem"), new_client_interaction_path, class: "pull-right btn btn-default btn-xs"
     h3 Heute zu kontaktieren
-    - current_day = "today"
+    - current_day = ""
     - unless @future_client_interactions.empty?
       - for client_interaction in @future_client_interactions do
         - if client_interaction.is_scheduled_today
@@ -18,7 +18,7 @@ div#dashboard
   div.panel.list.compact
 
     h3 Bald zu kontaktieren
-    - current_day = ""
+    - current_day = "-"
     - for client_interaction in @future_client_interactions do
       - unless client_interaction.is_scheduled_today
           - unless current_day === l(client_interaction.scheduled_at, :format => :notime)
