@@ -15,7 +15,7 @@ class ClientInteractionsController < ApplicationController
   def create
     @client_interaction = ClientInteraction.new client_interaction_params
     if @client_interaction.save
-      redirect_to :action => "index"
+      redirect_to client_path(@client_interaction.client)
     else
       render :action => "new"
     end
