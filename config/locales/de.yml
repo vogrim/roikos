@@ -83,7 +83,9 @@ de:
 
   time:
     formats:
-      default: "%d.%m.%Y, %H:%M"
+      default: "%e. %B %Y - %H:%M Uhr"
+      notime: "%e. %B %Y"
+      onlytime: "%H:%M Uhr"
 
   datetime:
     distance_in_words:

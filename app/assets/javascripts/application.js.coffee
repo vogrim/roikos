@@ -27,6 +27,16 @@ class Application
       $(this).toggleClass 'active'
 
 
+    $('.toggle-shift-time').on 'click', ->
+      $(this).closest('table').find('.shift-time').toggle()
+      return false
+
+    $('.toggle-interaction-form').on 'click', ->
+      $(this).closest('table').find('.interaction-form').toggleClass('hide')
+      $('#client_interaction_note').focus()
+      return false
+
+
 
 # Init app
 

@@ -6,7 +6,7 @@ class ClientInteraction < ActiveRecord::Base
 
   validates_presence_of :client_id, :user_id
 
-  default_scope { order('scheduled_at ASC') }
+  default_scope { order('interaction_at DESC') }
 
   def is_scheduled_today
     Date.current == scheduled_at.to_date

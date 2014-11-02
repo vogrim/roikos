@@ -1,21 +1,47 @@
-div.item
+div.item(class="#{("first" if current_day.empty?)}")
   div.main
     div
-      strong = link_to l(client_interaction.scheduled_at), edit_client_interaction_path(client_interaction), class: "text-muted"
-      span = " - #{client_interaction.method} #{client_interaction.note}"
-      div: strong = link_to client_interaction.client.title_for_list, client_path(client_interaction.client)
-      small.shift-time.text-muted
-        | Termin verschieben: 
-        a(href="" data-shift="600" data-id="#{client_interaction.id}") 10min
-        | , 
-        a(href="" data-shift="900" data-id="#{client_interaction.id}") 15min
-        | , 
-        a(href="" data-shift="1800" data-id="#{client_interaction.id}") 30min
-        | , 
-        a(href="" data-shift="3600" data-id="#{client_interaction.id}") 1 Stunde
-        | , 
-        a(href="" data-shift="10800" data-id="#{client_interaction.id}") 3 Stunden
-        | , 
-        a(href="" data-shift="86400" data-id="#{client_interaction.id}") 1 Tag
-        | , 
-        a(href="" data-shift="604800" data-id="#{client_interaction.id}") 1 Woche
+
+      table
+        tr
+          td.mainCell
+            div: strong = link_to client_interaction.client.title_for_list, client_path(client_interaction.client)
+            div.text-muted = "#{l(client_interaction.scheduled_at, :format => :onlytime)} - #{client_interaction.note}"
+
+            small.shift-time.text-muted
+              | Termin verschieben: 
+              a(href="" data-shift="600" data-id="#{client_interaction.id}") 10min
+              | , 
+              a(href="" data-shift="900" data-id="#{client_interaction.id}") 15min
+              | , 
+              a(href="" data-shift="1800" data-id="#{client_interaction.id}") 30min
+              | , 
+              a(href="" data-shift="3600" data-id="#{client_interaction.id}") 1 Stunde
+              | , 
+              a(href="" data-shift="10800" data-id="#{client_interaction.id}") 3 Stunden
+              | , 
+              a(href="" data-shift="86400" data-id="#{client_interaction.id}") 1 Tag
+              | , 
+              a(href="" data-shift="604800" data-id="#{client_interaction.id}") 1 Woche
+
+            div.interaction-form.hide
+              == simple_form_for ClientInteraction.new do |f|
+
+                = f.hidden_field :client_id, value: client_interaction.client.id
+                = f.hidden_field :user_id, value: current_user.id
+                = f.input :note, label: false
+                = f.input :method, collection: ['Anruf', 'Mail', 'Social Media'], label: false, :selected => 'Anruf'
+                div.visuallyhidden
+                  = f.submit "+", class: "btn"
+
+          td.actionCell
+            a.toggle-interaction-form(href="")
+              span.glyphicon.glyphicon-comment
+            = link_to edit_client_interaction_path(client_interaction) do
+              span.glyphicon.glyphicon-wrench
+            a.toggle-shift-time(href="")
+              span.glyphicon.glyphicon-time
+            = link_to_with_icon 'user', "", client_path(client_interaction.client), :target => "_blank"
+            a(href="skype:#{client_interaction.client.phone}")
+              span.glyphicon.glyphicon-phone-alt
+            

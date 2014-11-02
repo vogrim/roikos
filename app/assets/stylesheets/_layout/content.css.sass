@@ -73,6 +73,11 @@
     &:hover
       opacity: 1
 
+  &.compact
+    .item
+      padding-bottom: 7px
+      margin-bottom: 7px
+
 .comment_content
   width: 85%
   margin-right: 4%
@@ -101,12 +106,15 @@
 tr.past td
   color: #ababab
 
-.shift-time a
-  color: #999
-  font-weight: bold
+.shift-time
+  display: none
 
-  &:hover
-    text-decoration: underline
+  a
+    color: #999
+    font-weight: bold
+
+    &:hover
+      text-decoration: underline
 
 @media (min-width: $screen-sm-min)
 

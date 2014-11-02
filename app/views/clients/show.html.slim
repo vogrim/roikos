@@ -15,11 +15,11 @@ div#client-detail
     = render "clients/panels/interaction"
 
 
-    = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
-    |  
-    = link_to_with_icon 'trash', t("delete.label"), client_path(@client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default"
-    span.text-muted.created-at = @client.created_at
-
+    div.client-bottom-info
+        = link_to_with_icon 'edit', t("edit.label"), edit_client_path(@client), class: "btn btn-default"
+        |  
+        = link_to_with_icon 'trash', t("delete.label"), client_path(@client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default"
+        span.text-muted.created-at = @client.created_at
 
 
   div.col-md-6

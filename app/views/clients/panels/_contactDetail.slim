@@ -12,8 +12,8 @@ div.panel.contactInfo
         td: strong = t_formfield("website")
         td: a(href="#{@client.website}" target="_blank") = @client.website.sub(/^https?\:\/\//, '')
 
-    - for field in ['phone', 'fax'] do
+    - for field in ['phone'] do
       - unless @client[field].empty?
         tr
           td: strong = t_formfield(field)
-          td: a(href="skype:#{@client[field]}") = @client[field]
+          td.phoneNumber: a(href="skype:#{@client[field]}") = Phony.format(Phony.normalize(@client[field]))

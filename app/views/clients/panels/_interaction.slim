@@ -1,18 +1,19 @@
 div.panel.list
 
-  a = link_to t("newitem"), new_client_interaction_path(client_interaction: { client_id: @client.id, interaction_at: Time.new }), class: "pull-right btn btn-default btn-xs"
+  a = link_to t("newitem"), new_client_interaction_path(client_interaction: { client_id: @client.id, scheduled_at: Time.new }), class: "pull-right btn btn-default btn-xs"
 
   h3 = t("activerecord.models.client_interaction.other")
 
   - for client_interaction in @client.client_interactions do
     div.item
+      div.text-muted.sub
+        strong = link_to (client_interaction.interaction_at.nil? ? "-" : l(client_interaction.interaction_at)), edit_client_interaction_path(client_interaction), class: "text-muted"
+        span = ", #{client_interaction.method}"
       div.main
-        strong = client_interaction.interaction_at.nil? ? "-" : l(client_interaction.interaction_at)
-        span = ", #{client_interaction.note}"
+        div.interactionNote: i = client_interaction.note
       div.sub.text-muted
         - unless client_interaction.scheduled_at.nil?
-          span = "Geplant am: #{l(client_interaction.scheduled_at)}: "
-        span = link_to client_interaction.method, edit_client_interaction_path(client_interaction), class: "text-muted"
+          span = "Geplant am: #{l(client_interaction.scheduled_at)}"
         div.shift-time
           | Termin verschieben: 
           a(href="" data-shift="600" data-id="#{client_interaction.id}") 10min
