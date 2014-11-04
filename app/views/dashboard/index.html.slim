@@ -12,6 +12,7 @@ div#dashboard
       - for client_interaction in @future_client_interactions do
         - if client_interaction.is_scheduled_today
           = render "client_interaction", :client_interaction => client_interaction, :current_day => current_day
+          - current_day = l(client_interaction.scheduled_at, :format => :notime)
 
 
   div.panel.list.compact
