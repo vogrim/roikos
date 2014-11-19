@@ -24,19 +24,7 @@ div.item(class="#{("first" if current_day.empty?)}")
               | , 
               a(href="" data-shift="604800" data-id="#{client_interaction.id}") 1 Woche
 
-            div.interaction-form.hide
-              == simple_form_for ClientInteraction.new do |f|
-
-                = f.hidden_field :client_id, value: client_interaction.client.id
-                = f.hidden_field :user_id, value: current_user.id
-                = f.input :note, label: false
-                = f.input :method, collection: ['Anruf', 'Mail', 'Social Media'], label: false, :selected => 'Anruf'
-                div.visuallyhidden
-                  = f.submit "+", class: "btn"
-
           td.actionCell
-            a.toggle-interaction-form(href="")
-              span.glyphicon.glyphicon-comment
             = link_to edit_client_interaction_path(client_interaction) do
               span.glyphicon.glyphicon-wrench
             a.toggle-shift-time(href="")

@@ -5,7 +5,7 @@ class ClientInteractionsController < ApplicationController
   before_filter :load_users, only: [:new, :edit]
 
   def index
-    @client_interactions = ClientInteraction.all
+    @client_interactions = ClientInteraction.includes(:client).all.paginate(:page => params[:page])
   end
 
   def new
