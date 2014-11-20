@@ -28,6 +28,7 @@ en:
         email: "Email"
         website: "Website"
         phone: "Phone"
+        zipcode: "Zipcode"
         start_at: "Date start"
         end_at: "Date end"
         client: "Client"

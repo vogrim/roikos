@@ -28,6 +28,7 @@ de:
         email: "E-Mail"
         website: "Website"
         phone: "Telefonnummer"
+        zipcode: "PLZ"
         start_at: "Datum Beginn"
         end_at: "Datum Ende"
         client: "Kunde"

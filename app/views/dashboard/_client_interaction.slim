@@ -4,7 +4,7 @@ div.item(class="#{("first" if current_day.empty?)}")
 
       table
         tr
-          td.mainCell
+          td
             div: strong = link_to client_interaction.client.title_for_list, client_path(client_interaction.client)
             div.text-muted = "#{l(client_interaction.scheduled_at, :format => :onlytime)} - #{client_interaction.note}"
 

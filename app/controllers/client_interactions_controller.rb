@@ -23,7 +23,7 @@ class ClientInteractionsController < ApplicationController
 
   def update
     if @client_interaction.update_attributes client_interaction_params
-      redirect_to :action => "index"
+      redirect_to client_path(@client_interaction.client)
     else
       render :action => "edit"
     end
