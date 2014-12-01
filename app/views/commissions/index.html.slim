@@ -19,7 +19,7 @@ div.panel
           td: strong = l(commission.start_at)
           td: strong = l(commission.end_at)
           td
-            div = commission.client.title_for_list
+            div = link_to commission.client.title_for_list, client_path(commission.client)
             div.text-muted
               - for item in commission.items do
                 small = "#{item.quantity} x #{item.product.title}"
