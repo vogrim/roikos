@@ -58,7 +58,7 @@ gem 'devise'
 
 gem 'rails_12factor', group: :production
 
-gem 'country_select'
+gem 'country_select', '~> 1.0'
 
 gem 'select2-rails'
 

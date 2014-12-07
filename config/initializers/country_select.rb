@@ -1,1 +1,0 @@
-::CountrySelect.use_iso_codes = true
