@@ -23,7 +23,6 @@ class EventsController < ApplicationController
 
   def update
     if @event.update_attributes event_params
-      @event.create_interaction current_user.id
       redirect_to :action => "index"
     else
       render :action => "edit"
