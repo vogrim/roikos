@@ -76,6 +76,8 @@ gem 'newrelic_rpm'
 
 gem 'phony'
 
+gem 'weekdays'
+
 group :development do
   gem 'pry-rails', '~> 0.2'
   gem 'better_errors'
