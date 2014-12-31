@@ -31,7 +31,7 @@ class ClientInteractionsController < ApplicationController
 
   def destroy
     @client_interaction.destroy
-    redirect_to :action => "index"
+    redirect_to :back
   end
 
   def shift_scheduled_time
