@@ -3,15 +3,15 @@ class BrandsController < ApplicationController
   before_filter :load_brand, only: [:edit, :update, :destroy]
 
   def index
-    @brands = Brand.all
+    @brands = current_account.brands
   end
 
   def new
-    @brand = Brand.new
+    @brand = current_account.brands.new
   end
 
   def create
-    @brand = Brand.new brand_params
+    @brand = current_account.brands.new brand_params
     if @brand.save
       redirect_to :action => "index"
     else
@@ -39,7 +39,7 @@ class BrandsController < ApplicationController
   end
 
   def load_brand
-    @brand = Brand.find(params[:id])
+    @brand = current_account.brands.find(params[:id])
   end
 
 end

@@ -3,7 +3,7 @@ class ClientsController < ApplicationController
   before_filter :load_client, only: [:edit, :update, :destroy, :show]
 
   def index
-    @q = Client.search(params[:q])
+    @q = current_account.clients.search(params[:q])
     @clients = @q.result(distinct: true).paginate(:page => params[:page])
     redirect_to client_path(@clients.first) if @clients.length == 1
   end
@@ -12,11 +12,11 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @client = current_account.clients.new
   end
 
   def create
-    @client = Client.new client_params
+    @client = current_account.clients.new client_params
     if @client.save
       redirect_to :action => "index"
     else
@@ -44,7 +44,7 @@ class ClientsController < ApplicationController
   end
 
   def load_client
-    @client = Client.find(params[:id])
+    @client = current_account.clients.find(params[:id])
   end
 
 end
