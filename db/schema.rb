@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901111232) do
+ActiveRecord::Schema.define(version: 20150216153857) do
+
+  create_table "accounts", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "bill_items", force: true do |t|
     t.integer  "bill_id"
@@ -34,12 +40,14 @@ ActiveRecord::Schema.define(version: 20140901111232) do
     t.string   "note"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "brands", force: true do |t|
     t.string   "title"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "client_interactions", force: true do |t|
@@ -71,6 +79,7 @@ ActiveRecord::Schema.define(version: 20140901111232) do
     t.string   "avatar"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "comments", force: true do |t|
@@ -153,6 +162,7 @@ ActiveRecord::Schema.define(version: 20140901111232) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

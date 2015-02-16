@@ -7,6 +7,8 @@ class Client < ActiveRecord::Base
   has_many :bills
   has_many :client_interactions
 
+  belongs_to :account
+
   accepts_nested_attributes_for :comments
 
   mount_uploader :avatar, AvatarUploader

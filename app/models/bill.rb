@@ -1,6 +1,7 @@
 class Bill < ActiveRecord::Base
 
   belongs_to :client
+  belongs_to :account
 
   has_many :bill_items
   has_many :products, through: :bill_items
