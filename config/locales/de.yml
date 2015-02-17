@@ -23,6 +23,11 @@ de:
 
   activerecord:
     models:
+
+      account:
+        one: "Konto"
+        other: "Konten"
+
       movement:
         one: "Warenbewegung"
         other: "Warenbewegungen"

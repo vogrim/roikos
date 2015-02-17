@@ -23,6 +23,11 @@ en:
 
   activerecord:
     models:
+
+      account:
+        one: "Account"
+        other: "Accounts"
+
       movement:
         one: "Movement"
         other: "Movements"

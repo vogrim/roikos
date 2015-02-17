@@ -7,6 +7,7 @@ class AddDefaultAccountAndAssignUsers < ActiveRecord::Migration
     Brand.update_all account_id: firstAccount.id
     Client.update_all account_id: firstAccount.id
     Bill.update_all account_id: firstAccount.id
+    MovementType.update_all account_id: firstAccount.id
 
   end
 end

@@ -124,6 +124,7 @@ ActiveRecord::Schema.define(version: 20150216153857) do
     t.boolean  "increase_state", default: false
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "account_id"
   end
 
   create_table "movements", force: true do |t|

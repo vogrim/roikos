@@ -2,13 +2,14 @@ class CommissionsController < ApplicationController
 
   before_filter :load_commission, only: [:edit, :update, :destroy]
   before_filter :load_clients, only: [:new, :edit]
+  before_filter :load_products, only: [:new, :edit]
 
   def index
-    @commissions = Commission.all
+    @commissions = current_account.commissions.all
   end
 
   def new
-    @commission = Commission.new params[:commission] ? commission_params : {}
+    @commission = current_account.commissions.new params[:commission] ? commission_params : {}
     @commission.commission_items.build
   end
 
@@ -17,7 +18,7 @@ class CommissionsController < ApplicationController
   end
 
   def create
-    @commission = Commission.new commission_params
+    @commission = current_account.commissions.new commission_params
     if @commission.save
       redirect_to :action => "index"
     else
@@ -45,11 +46,15 @@ class CommissionsController < ApplicationController
   end
 
   def load_commission
-    @commission = Commission.find(params[:id])
+    @commission = current_account.commissions.find(params[:id])
   end
 
   def load_clients
-    @clients = Client.all
+    @clients = current_account.clients.all
+  end
+
+  def load_products
+    @products = current_account.products.all
   end
 
 end

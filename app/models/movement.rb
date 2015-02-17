@@ -7,4 +7,8 @@ class Movement < ActiveRecord::Base
 
   default_scope { order('movement_at DESC') }
 
+  attr_accessor :account
+
+  validates_inclusion_of :product, in: -> (movement) { movement.account.products }
+
 end

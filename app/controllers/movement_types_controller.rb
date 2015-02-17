@@ -3,15 +3,15 @@ class MovementTypesController < ApplicationController
   before_filter :load_movement_type, only: [:edit, :update, :destroy]
 
   def index
-    @movement_types = MovementType.all
+    @movement_types = current_account.movement_types.all
   end
 
   def new
-    @movement_type = MovementType.new
+    @movement_type = current_account.movement_types.new
   end
 
   def create
-    @movement_type = MovementType.new movement_type_params
+    @movement_type = current_account.movement_types.new movement_type_params
     if @movement_type.save
       redirect_to :action => "index"
     else
@@ -39,7 +39,7 @@ class MovementTypesController < ApplicationController
   end
 
   def load_movement_type
-    @movement_type = MovementType.find(params[:id])
+    @movement_type = current_account.movement_types.find(params[:id])
   end
 
 end

@@ -18,7 +18,7 @@
 
     = f.simple_fields_for :bill_items do |item_fields| 
 
-      = item_fields.input :product_id, collection: Product.all, label: t_formfield("product")
+      = item_fields.input :product_id, collection: @products, label: t_formfield("product")
 
       = item_fields.input :label
 

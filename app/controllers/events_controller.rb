@@ -4,15 +4,15 @@ class EventsController < ApplicationController
   before_filter :load_clients, only: [:new, :edit]
 
   def index
-    @events = Event.all
+    @events = current_account.events.all
   end
 
   def new
-    @event = Event.new params[:event] ? event_params : {}
+    @event = current_account.events.new params[:event] ? event_params : {}
   end
 
   def create
-    @event = Event.new event_params
+    @event = current_account.events.new event_params
     if @event.save
       @event.create_interaction current_user.id
       redirect_to :action => "index"
@@ -41,11 +41,11 @@ class EventsController < ApplicationController
   end
 
   def load_event
-    @event = Event.find(params[:id])
+    @event = current_account.events.find(params[:id])
   end
 
   def load_clients
-    @clients = Client.all
+    @clients = current_account.clients.all
   end
 
 end

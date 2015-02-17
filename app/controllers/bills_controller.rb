@@ -1,14 +1,15 @@
 class BillsController < ApplicationController
 
-  before_filter :load_Bill, only: [:edit, :update, :destroy]
+  before_filter :load_bill, only: [:edit, :update, :destroy]
   before_filter :load_clients, only: [:new, :edit]
+  before_filter :load_products, only: [:new, :edit]
 
   def index
-    @bills = Bill.all
+    @bills = current_account.bills.all
   end
 
   def new
-    @bill = Bill.new params[:bill] ? bill_params : {}
+    @bill = current_account.bills.new params[:bill] ? bill_params : {}
     @bill.bill_items.build
   end
 
@@ -17,7 +18,7 @@ class BillsController < ApplicationController
   end
 
   def create
-    @bill = Bill.new bill_params
+    @bill = current_account.bills.new bill_params
     if @bill.save
       redirect_to :action => "index"
     else
@@ -44,12 +45,16 @@ class BillsController < ApplicationController
     params.require(:bill).permit(:sent_at, :payed_at, :client_id, :label, :shipping_label, :shipping_price, :note, bill_items_attributes: [:id, :product_id, :label, :tax, :unit_price, :quantity, :_destroy])
   end
 
-  def load_Bill
-    @bill = Bill.find(params[:id])
+  def load_bill
+    @bill = current_account.bills.find(params[:id])
   end
 
   def load_clients
-    @clients = Client.all
+    @clients = current_account.clients.all
+  end
+
+  def load_products
+    @products = current_account.products.all
   end
 
 end

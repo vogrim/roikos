@@ -7,7 +7,6 @@ class BillItem < ActiveRecord::Base
 
   before_save :fill_label
 
-
   protected
 
   def fill_label

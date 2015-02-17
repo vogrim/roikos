@@ -5,15 +5,15 @@ class ClientInteractionsController < ApplicationController
   before_filter :load_users, only: [:new, :edit]
 
   def index
-    @client_interactions = ClientInteraction.includes(:client).all.paginate(:page => params[:page])
+    @client_interactions = current_account.client_interactions.includes(:client).all.paginate(:page => params[:page])
   end
 
   def new
-    @client_interaction = ClientInteraction.new params[:client_interaction] ? client_interaction_params : {}
+    @client_interaction = current_account.client_interactions.new params[:client_interaction] ? client_interaction_params : {}
   end
 
   def create
-    @client_interaction = ClientInteraction.new client_interaction_params
+    @client_interaction = current_account.client_interactions.new client_interaction_params
     if @client_interaction.save
       redirect_to client_path(@client_interaction.client)
     else
@@ -38,7 +38,7 @@ class ClientInteractionsController < ApplicationController
 
     shift = params[:shift].to_i
 
-    @client_interaction = ClientInteraction.find(params[:id])
+    @client_interaction = current_account.client_interactions.find(params[:id])
     @client_interaction.scheduled_at = @client_interaction.scheduled_at + shift
     @client_interaction.save
 
@@ -52,15 +52,15 @@ class ClientInteractionsController < ApplicationController
   end
 
   def load_client_interaction
-    @client_interaction = ClientInteraction.find(params[:id])
+    @client_interaction = current_account.client_interactions.find(params[:id])
   end
 
   def load_clients
-    @clients = Client.all
+    @clients = current_account.clients.all
   end
 
   def load_users
-    @users = User.all
+    @users = current_account.users.all
   end
 
 end
