@@ -28,6 +28,10 @@ en:
         one: "Account"
         other: "Accounts"
 
+      user:
+        one: "User"
+        other: "Users"
+
       movement:
         one: "Movement"
         other: "Movements"

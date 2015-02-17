@@ -1,0 +1,13 @@
+== simple_form_for @user, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :firstname, label: t_formfield("firstname")
+
+  = f.input :surname, label: t_formfield("surname")
+
+  = f.input :account_id, collection: @accounts, label: t_formfield("account"), label_method: :name
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

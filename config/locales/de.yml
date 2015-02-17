@@ -28,6 +28,10 @@ de:
         one: "Konto"
         other: "Konten"
 
+      user:
+        one: "Benutzer"
+        other: "Benutzer"
+
       movement:
         one: "Warenbewegung"
         other: "Warenbewegungen"

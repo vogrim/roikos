@@ -47,6 +47,8 @@ de:
         label: "Bezeichnung"
         scheduled_at: "Geplant am"
         interaction_at: "Interagiert am"
+        firstname: "Vorname"
+        surname: "Nachname"
 
   helpers:
     submit:
