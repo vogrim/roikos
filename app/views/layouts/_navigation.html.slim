@@ -19,8 +19,8 @@ div#nav-container
 
     ul
       li = nav_link_item t_model_name("product"), products_path, "products", "database"
-      li = nav_link_item "Account", products_path, "products", "cog"
-      li = nav_link_item "Benutzer", products_path, "products", "user"
+      li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
+      li = nav_link_item t_model_name("user"), users_path, "users", "user"
 
 
   div.nav-group
@@ -31,5 +31,4 @@ div#nav-container
     div.nav-avatar-box
       img.avatar src="/img/content/user-avatar/#{current_user.id}.jpg"
       div.user-name = "#{current_user.firstname} #{current_user.surname}"
-      div.account-name = "Roikos"
-
+      div.account-name = "#{current_account.name}"
