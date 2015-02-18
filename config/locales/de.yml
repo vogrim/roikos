@@ -18,6 +18,12 @@ de:
 
   openGoogleMaps: "Google Maps öffnen"
 
+  mainNavigation: "Hauptnavigation"
+
+  accountSettings: "Konto-Verwaltung"
+
+  admin: "Admin"
+
   notifications:
     empty: "Keine kürzlichen Neuigkeiten"
 
@@ -69,8 +75,8 @@ de:
         other: "Rechnungen"
 
       client_interaction:
-        one: "Kunden-Interaktion"
-        other: "Kunden-Interaktionen"
+        one: "Interaktion"
+        other: "Interaktionen"
 
   newitem: "Neuen Eintrag hinzufügen"
 

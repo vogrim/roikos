@@ -1,12 +1,16 @@
 body
   background: #f3f3f3
-  font-family: "Roboto", "Helvetica Neue", Arial, sans-serif
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif
   font-weight: 400
+
+body, html
+  height: 100%
 
 div
   @include box-sizing(border-box)
 
 a
+  text-decoration: none
 
   &:focus, &:active
     outline: 0
@@ -20,6 +24,11 @@ h1, h2, h3, h4, h5, h6
 
 h1
   font-size: 25px
+
+ul
+  list-style-type: none
+  margin: 0
+  padding: 0
 
 // Hide Firefox select border
 select:-moz-focusring

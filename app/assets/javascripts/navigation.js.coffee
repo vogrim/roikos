@@ -3,15 +3,9 @@ class window.Navigation
   constructor: ->
 
     @$body = $('body')
+    @$navGroup = $('.nav-group')
 
-    this.preperation()
     this.clickEvents()
-
-
-  preperation: =>
-
-    $('#nav-container .parent .active').each ->
-      $(this).closest('.parent').addClass 'parent-active'
 
 
   clickEvents: =>
@@ -20,7 +14,5 @@ class window.Navigation
       @$body.toggleClass 'navigation-open'
       return false
 
-    $('#nav-container .parent > a').not('.parent-active > a').on 'click', ->
-      $(this).parent().toggleClass 'visible'
-      return false
-
+    @$navGroup.find('.nav-seperator').on 'click', ->
+      $(this).closest('.nav-group').toggleClass 'open'

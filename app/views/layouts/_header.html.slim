@@ -3,7 +3,7 @@ header#header-container
   div#logo-container
 
     a#logo
-      | Roikos 
+      | Thooa 
       span CRM
 
     a#navigation-toggle class="pull-right"
@@ -32,14 +32,7 @@ header#header-container
               li class= (locale == :de ? "active" : "") = link_to "Deutsch", url_for( :locale => "de" )
 
 
-        div#user-container class="header-box header-box-action"
+        div#user-container class="header-box"
 
-          img.user-avatar src="/img/content/user-avatar/#{current_user.id}.jpg"
-          span.user-name = "#{current_user.firstname} #{current_user.surname}"
-          span.glyphicon.glyphicon-chevron-down
-
-          div.header-dropdown
-            ul
-              li: a href="" = t("settings")
-              li = link_to t('signout'), destroy_user_session_path, :method => :delete
+          = link_to_with_icon "power-off", "", destroy_user_session_path, :method => :delete
 

@@ -18,6 +18,12 @@ en:
 
   openGoogleMaps: "Open Google Maps"
 
+  mainNavigation: "Main navigation"
+
+  accountSettings: "Account settings"
+
+  admin: "Admin"
+
   notifications:
     empty: "No recent notifications"
 
@@ -69,8 +75,8 @@ en:
         other: "Bills"
 
       client_interaction:
-        one: "Client interaction"
-        other: "Client interactions"
+        one: "Interaction"
+        other: "Interactions"
 
   newitem: "Add new item"
 
