@@ -1,63 +1,98 @@
+// Specific variables
+
+$innerPadding: 15px
+
+
+// Styles
+
 #nav-container
   @include position(absolute, $headerHeight 0px 0 0px)
+  @include user-select(none)
   background: $colorTheme1
-  color: #fff
+  color: $colorWhite
+  font-size: $fontSizeMedium
+  font-weight: $fontWeightBold
   display: none
   z-index: 20
+  overflow: auto
 
-  ul
-    list-style-type: none
-    padding: 0
-    margin: 0
-    font-size: 13px
-    background: $colorTheme1
+  .nav-group
+    border-top: 1px solid rgba(0, 0, 0, .15)
+    margin: 12px 0 6px 0
 
-    a
-      display: block
-      padding: 15px 15px
-      color: $colorGrayMid
-      text-decoration: none
+    &.first
+      border-top: none
 
-      &:hover
-        text-decoration: none
+    &.toggle
+      cursor: pointer
 
-      span
-        width: 25px
+      .nav-seperator:hover
 
-  > ul
+        i
+          color: $colorTheme4
 
-    > li
+    &.open
 
-      > a:hover
-        background: $colorBlack
-        color: $colorWhite
+      .nav-seperator i
+        @include transform(rotate(90deg))
 
-      &.parent-active > a, > a.active
-        background: $colorTheme2
-        color: $colorWhite
-
-      &.parent-active > ul
-        background: lighten($colorTheme1, 8)
-
-      &.parent > a:after
-        font-family: "Glyphicons Halflings"
-        content: "\e080"
-        font-size: 8px
-        float: right
-        position: relative
-        top: 4px
-
-      &.parent-active ul, &.visible ul
+      ul
         display: block
 
-  > ul > li > ul
+  .nav-seperator
+    color: $colorTheme3
+    font-size: $fontSizeMini
+    letter-spacing: $letterSpacingMini
+    text-transform: uppercase
+    padding: 10px $innerPadding
+
+    i
+      @include transition-property(transform)
+      @include transition-duration(.2s)
+      margin-top: 2px
+      float: right
+
+  ul
     display: none
 
     a
-      padding: 10px 0 10px 43px
+      display: block
+      padding: 7px $innerPadding
+      color: $colorTheme4
 
-      &:hover, &.active
-        color: $colorTheme2
+      &:hover
+        color: $colorWhite
+
+      i
+        width: 18px
+
+    li
+
+      &.parent-active > a, > a.active
+        background: #242830
+        color: $colorWhite
+
+
+  .nav-avatar-box
+    padding: 10px $innerPadding
+    color: $colorTheme4
+
+    img
+      width: 45px
+      height: 45px
+      border-radius: 45px
+      border: 1px solid #707c92
+      margin: 0 10px 10px 0
+      display: block
+      float: left
+
+    .user-name
+      padding-bottom: 3px
+      color: #fff
+
+    .account-name
+      font-size: 12px
+
 
 
 .navigation-open #nav-container
@@ -72,3 +107,14 @@
     display: block
     width: $navigationWidth
     padding-top: $headerHeight
+
+
+@media (min-height: 550px)
+
+  #nav-container
+
+    ul a
+      padding: 12px $innerPadding
+
+    .nav-group
+      margin: 18px 0 10px 0

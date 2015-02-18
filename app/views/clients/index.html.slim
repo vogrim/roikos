@@ -29,3 +29,8 @@ div.panel
 
     span.text-muted.pull-left.pagination-detail = "#{@clients.count} #{t("activerecord.models.client.other")}"
     == will_paginate @posts, renderer: BootstrapPagination::Rails, class: 'pull-right'
+
+
+  div.clearfix
+
+    = link_to_with_icon 'phone', t("activerecord.models.client_interaction.other"), client_interactions_path, class: "btn pull-right btn-default mB20"
