@@ -88,6 +88,12 @@ en:
     label: "Delete"
     confirm: "Are you sure?"
 
+  time:
+    formats:
+      default: "%e. %B %Y - %H:%M Uhr"
+      notime: "%e. %B %Y"
+      onlytime: "%H:%M Uhr"
+
   date:
     datepicker:
       default: "mm-dd-yyyy"

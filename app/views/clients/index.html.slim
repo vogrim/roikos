@@ -19,11 +19,9 @@ div.panel
           td: strong = link_to client.title_for_list, client_path(client)
           td = client.group
           td.text-right
-            = link_to_with_icon 'user', "Detail", client_path(client), class: "btn btn-default btn-xs"
+            = link_to_with_icon 'pencil', t("edit.label"), edit_client_path(client), class: "btn btn-default btn-xs"
             |  
-            = link_to_with_icon 'edit', t("edit.label"), edit_client_path(client), class: "btn btn-default btn-xs"
-            |  
-            = link_to_with_icon 'trash', t("delete.label"), client_path(client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+            = link_to_with_icon 'trash-o', t("delete.label"), client_path(client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
 
   div.clearfix
 

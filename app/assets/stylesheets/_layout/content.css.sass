@@ -1,6 +1,12 @@
 #content
   padding-top: 15px
 
+.btn
+  font-size: $fontSizeMedium
+
+  i
+    margin-right: 3px
+
 .mB20
   margin-bottom: 20px
 
@@ -8,7 +14,10 @@
   margin-bottom: 20px
   background: #fff
   padding: 15px 15px 1px 15px
-  box-shadow: 0 2px 1px rgba($colorBlack,0.05)
+  box-shadow: 0 1px 0 rgba(0,0,0,.1)
+  border-right: 1px solid #e6e9ee
+  border-left: 1px solid #e6e9ee
+  border-radius: 2px
 
   &.noPadding
     padding: 0
@@ -26,8 +35,15 @@
     color: rgba($colorBlack, .5)
     color: $colorTheme3
 
+  thead tr th
+    // border-color: red
+
   tbody td
     color: rgba($colorBlack, .9)
+    color: #8394a9
+
+    a
+      color: #2b3d51
 
   .backlink
     opacity: .5
