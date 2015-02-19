@@ -3,9 +3,14 @@ class ClientsController < ApplicationController
   before_filter :load_client, only: [:edit, :update, :destroy, :show]
 
   def index
-    @q = Client.search(params[:q])
-    @clients = @q.result(distinct: true).paginate(:page => params[:page])
-    redirect_to client_path(@clients.first) if @clients.length == 1
+    if params[:q].present?
+      @clients = Client.search_fullname_and_company(params[:q])
+    else
+      @clients = Client.all
+    end
+    clientsBeforePagination = @clients
+    @clients = @clients.paginate(:page => params[:page])
+    redirect_to client_path(@clients.first) if clientsBeforePagination.length == 1 and params[:q].present?
   end
 
   def show

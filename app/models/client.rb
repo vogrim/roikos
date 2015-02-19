@@ -5,6 +5,7 @@ class Client < ActiveRecord::Base
   has_many :commissions
   has_many :events
   has_many :bills
+  has_many :bill_items, through: :bills
   has_many :client_interactions
 
   accepts_nested_attributes_for :comments
@@ -13,6 +14,12 @@ class Client < ActiveRecord::Base
 
   default_scope { order('created_at DESC') }
 
+  scope :search_fullname_and_company, -> (q) {
+    words = q.split " "
+    words_sql = words.map {|w| "%#{w}%"}
+    query = ["concat(company, firstname, surname) LIKE ?"] * words.size
+    where(query.join(" and "), *words_sql)
+  }
 
   def title_for_list
     [company, full_name].reject(&:blank?).join(', ')
@@ -39,13 +46,7 @@ class Client < ActiveRecord::Base
   end
 
   def total_product_sales
-    total_sales = 0
-    for bill in bills do
-      for bill_item in bill.bill_items do
-        total_sales += bill_item.quantity
-      end
-    end
-    total_sales
+    bill_items.sum :quantity
   end
 
 end
