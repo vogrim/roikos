@@ -7,8 +7,8 @@ class Ability
       can :manage, :all
     end
     
-    if user.superuser? 
-      can :manage, User, account_id: user.account_id
+    if user.superuser?
+      can [:read, :create, :update, :destroy, :change_role], User, account_id: user.account_id
     end
     
     # Define abilities for the passed in user here. For example:

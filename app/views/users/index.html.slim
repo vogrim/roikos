@@ -1,8 +1,9 @@
 div.panel
 
   h1 = set_page_title t("activerecord.models.user.other")
-
-  = link_to_with_icon 'plus', t("newitem"), new_user_path , class: "btn btn-primary pull-right"
+  
+  - if can? :create, User
+    = link_to_with_icon 'plus', t("newitem"), new_user_path , class: "btn btn-primary pull-right"
 
   table.table.table-responsive.table-hover
     thead

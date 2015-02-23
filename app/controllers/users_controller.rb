@@ -1,22 +1,15 @@
 class UsersController < ApplicationController
+  
+  load_and_authorize_resource
 
-  before_filter :load_user, only: [:edit, :update, :destroy]
   before_filter :load_accounts, only: [:new, :edit]
 
-  def index
-    if current_user.admin?
-      @users = User.all
-    else
-      @users = current_account.users.all
-    end
-  end
-
-  def new
-    @users = current_account.users.new params[:account] ? user_params : {}
-  end
-
   def create
-    @user = current_account.users.new account_params
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    
     if @user.save
       redirect_to :action => "index"
     else
@@ -25,6 +18,11 @@ class UsersController < ApplicationController
   end
 
   def update
+    if params[:user][:password].blank? && params[:user][:password_confirmation].blank?
+      params[:user].delete(:password)
+      params[:user].delete(:password_confirmation)
+    end
+    
     if @user.update_attributes user_params
       redirect_to :action => "index"
     else
@@ -40,11 +38,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :encrypted_password, :firstname, :surname, :avatar)
-  end
-
-  def load_user
-    @user = current_account.users.find(params[:id])
+    params.require(:user).permit(:email, :firstname, :surname, :avatar, :role, :password, :password_confirmation)
   end
 
   def load_accounts

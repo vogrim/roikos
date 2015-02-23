@@ -20,11 +20,11 @@ div#nav-container
     ul
       li = nav_link_item t_model_name("product"), products_path, "products", "database"
       
-      - if current_user.admin?
-      
-        li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
+      - if can? :read, User
         li = nav_link_item t_model_name("user"), users_path, "users", "user"
 
+      - if can? :manage, Account
+        li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
 
   div.nav-group
 

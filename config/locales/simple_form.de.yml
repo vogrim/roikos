@@ -11,7 +11,14 @@ de:
 
     error_notification:
       default_message: "Bitte untenstehende Fehler beheben:"
-
+    
+    options:
+      user:
+        role:
+          user: "Benutzer"
+          admin: "Administrator"
+          superuser: "Konto-Admin"
+        
     labels:
       defaults:
         date: "Datum"
