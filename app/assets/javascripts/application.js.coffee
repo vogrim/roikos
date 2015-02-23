@@ -8,6 +8,9 @@
 #= require form
 #= require select2
 
+#= require turbolinks-jquery-ready
+
+#= require_tree ./modules
 
 class Application
 

@@ -30,6 +30,11 @@ $innerPadding: 15px
 
         i
           color: $colorTheme4
+          
+    &.without-animation
+      .nav-seperator
+        i
+          @include transition-duration(0s)
 
     &.open
 
