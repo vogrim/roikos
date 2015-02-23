@@ -29,6 +29,6 @@ div#nav-container
       = t("accountSettings")
 
     div.nav-avatar-box
-      img.avatar src="/img/content/user-avatar/#{current_user.id}.jpg"
+      = image_tag current_user.avatar, class: "avatar"
       div.user-name = "#{current_user.firstname} #{current_user.surname}"
       div.account-name = "#{current_account.name}"
