@@ -1,0 +1,23 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.user.other")
+  
+  - if can? :create, User
+    = link_to_with_icon 'plus', t("newitem"), new_user_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("name")
+        th = t("activerecord.models.account.one")
+        th.text-right
+
+    tbody
+      - for user in @users do
+        tr
+          td: strong = "#{user.firstname} #{user.surname}"
+          td = user.account.name
+          td.text-right.no-wrap
+            = link_to_with_icon 'edit', t("edit.label"), edit_user_path(user), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', "", user_path(user), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

@@ -11,7 +11,14 @@ de:
 
     error_notification:
       default_message: "Bitte untenstehende Fehler beheben:"
-
+    
+    options:
+      user:
+        role:
+          user: "Benutzer"
+          admin: "Administrator"
+          superuser: "Konto-Admin"
+        
     labels:
       defaults:
         date: "Datum"
@@ -47,6 +54,8 @@ de:
         label: "Bezeichnung"
         scheduled_at: "Geplant am"
         interaction_at: "Interagiert am"
+        firstname: "Vorname"
+        surname: "Nachname"
 
   helpers:
     submit:

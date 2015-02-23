@@ -1,19 +1,39 @@
 div#nav-container
 
-  ul
+  div.nav-group.first.open
 
-    li = nav_link_item t("dashboard"), root_path, "dashboard", 'dashboard'
+    ul.clear-fix
+      li = nav_link_item t("dashboard"), root_path, "dashboard", 'circle-o-notch'
+      li = nav_link_item t_model_name("client"), clients_path, "clients", "user"
+      li = nav_link_item t_model_name("event"), events_path, "events", "calendar-o"
+      li = nav_link_item t_model_name("bill"), bills_path, "bills", "file-text-o"
+      li = nav_link_item t_model_name("commission"), commissions_path, "commissions", "exchange"
+      li = nav_link_item t_model_name("movement"), movements_path, "movements", "history"
 
-    li = nav_link_item t("activerecord.models.client.other"), clients_path, "clients", "user"
 
-    li = nav_link_item t("activerecord.models.client_interaction.other"), client_interactions_path, "client_interactions", "user"
+  div.nav-group.toggle data-name="admin"
 
-    li = nav_link_item t("activerecord.models.event.other"), events_path, "events", "eye-open"
+    div.nav-seperator
+      = t("admin")
+      = fa_icon "chevron-right"
 
-    li = nav_link_item t("activerecord.models.bill.other"), bills_path, "bills", "tasks"
+    ul
+      li = nav_link_item t_model_name("product"), products_path, "products", "database"
+      
+      - if can? :read, User
+        li = nav_link_item t_model_name("user"), users_path, "users", "user"
 
-    li = nav_link_item t("activerecord.models.commission.other"), commissions_path, "commissions", "lock"
+      - if can? :manage, Account
+        li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
 
-    li = nav_link_item t("activerecord.models.movement.other"), movements_path, "movements", "transfer"
+  div.nav-group
 
-    li = nav_link_item t("activerecord.models.product.other"), products_path, "products", "tower"
+    div.nav-seperator
+      = t("accountSettings")
+
+    = link_to current_user_path, class: 'nav-avatar-box' do
+      = image_tag current_user.avatar, class: "avatar"
+      div.user-name = "#{current_user.firstname} #{current_user.surname}"
+      div.account-name = "#{current_account.name}"
+      div.profile-link = fa_icon "edit", text: t("edit.label")
+      

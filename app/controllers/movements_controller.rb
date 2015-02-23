@@ -5,7 +5,7 @@ class MovementsController < ApplicationController
   before_filter :load_clients, only: [:new, :edit]
 
   def index
-    @movements = Movement.all
+    @movements = current_account.movements.all
   end
 
   def new
@@ -37,23 +37,23 @@ class MovementsController < ApplicationController
   private
 
   def movement_params
-    params.require(:movement).permit(:movement_at, :count, :product_id, :movement_type_id, :client_id, :note)
+    params.require(:movement).permit(:movement_at, :count, :product_id, :movement_type_id, :client_id, :note).merge account: current_account
   end
 
   def load_movement
-    @movement = Movement.find(params[:id])
+    @movement = current_account.movements.find(params[:id])
   end
 
   def load_products
-    @products = Product.all
+    @products = current_account.products.all
   end
 
   def load_movement_types
-    @movement_types = MovementType.all
+    @movement_types = current_account.movement_types.all
   end
 
   def load_clients
-    @clients = Client.all
+    @clients = current_account.clients.all
   end
 
 end

@@ -1,0 +1,22 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.account.other")
+
+  = link_to_with_icon 'plus', t("newitem"), new_account_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("id")
+        th = t_formfield("name")
+        th.text-right
+
+    tbody
+      - for account in @accounts do
+        tr
+          td = account.id
+          td: strong = account.name
+          td.text-right.no-wrap
+            = link_to_with_icon 'edit', t("edit.label"), edit_account_path(account), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash', "", account_path(account), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

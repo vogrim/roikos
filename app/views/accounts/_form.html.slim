@@ -1,0 +1,9 @@
+== simple_form_for @account, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :name, label: t_formfield("name")
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

@@ -46,6 +46,8 @@ gem 'dotenv-rails'
 
 gem 'slim'
 
+gem "cancancan"
+
 gem 'bourbon'
 
 gem 'bootstrap-sass', '~> 3.1.1'

@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
     {locale: I18n.locale}.merge(super)
   end
 
+  def current_account
+    current_user.account
+  end
+
+  helper_method :current_account
+
 end

@@ -4,9 +4,9 @@ class ClientsController < ApplicationController
 
   def index
     if params[:q].present?
-      @clients = Client.search_fullname_and_company(params[:q])
+      @clients = current_account.clients.search_fullname_and_company(params[:q])
     else
-      @clients = Client.all
+      @clients = current_account.clients
     end
     clientsBeforePagination = @clients
     @clients = @clients.paginate(:page => params[:page])
@@ -17,11 +17,11 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @client = current_account.clients.new
   end
 
   def create
-    @client = Client.new client_params
+    @client = current_account.clients.new client_params
     if @client.save
       redirect_to :action => "index"
     else
@@ -49,7 +49,7 @@ class ClientsController < ApplicationController
   end
 
   def load_client
-    @client = Client.find(params[:id])
+    @client = current_account.clients.find(params[:id])
   end
 
 end

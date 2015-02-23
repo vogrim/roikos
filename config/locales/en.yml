@@ -20,11 +20,30 @@ en:
 
   openGoogleMaps: "Open Google Maps"
 
+  mainNavigation: "Main navigation"
+
+  accountSettings: "Account settings"
+
+  admin: "Admin"
+
   notifications:
     empty: "No recent notifications"
+    
+    
+  update:
+    success: "Successfully saved!"
 
   activerecord:
     models:
+
+      account:
+        one: "Account"
+        other: "Accounts"
+
+      user:
+        one: "User"
+        other: "Users"
+
       movement:
         one: "Movement"
         other: "Movements"
@@ -62,8 +81,8 @@ en:
         other: "Bills"
 
       client_interaction:
-        one: "Client interaction"
-        other: "Client interactions"
+        one: "Interaction"
+        other: "Interactions"
 
   newitem: "Add new item"
 
@@ -74,6 +93,12 @@ en:
   delete:
     label: "Delete"
     confirm: "Are you sure?"
+
+  time:
+    formats:
+      default: "%e. %B %Y - %H:%M Uhr"
+      notime: "%e. %B %Y"
+      onlytime: "%H:%M Uhr"
 
   date:
     datepicker:

@@ -1,0 +1,24 @@
+== simple_form_for @user, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :firstname, label: t_formfield("firstname")
+
+  = f.input :surname, label: t_formfield("surname")
+  
+  = f.input :email, label: t_formfield("email")
+  
+  = f.input :password, label: t_formfield("password")
+  = f.input :password_confirmation, label: t_formfield("password_confirmation")
+  
+  - if can? :change_account, User
+    = f.input :account_id, collection: @accounts, label: t_formfield("account"), label_method: :name
+  
+  - if can? :change_role, User
+    = f.input :role, collection: current_user.accessible_roles.map(&:to_sym)
+
+  = f.input :avatar
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

@@ -4,15 +4,15 @@ class ProductsController < ApplicationController
   before_filter :load_brands
 
   def index
-    @products = Product.all
+    @products = current_account.products
   end
 
   def new
-    @product = Product.new
+    @product = current_account.products.new
   end
 
   def create
-    @product = Product.new product_params
+    @product = current_account.products.new product_params
     if @product.save
       redirect_to :action => "index"
     else
@@ -40,11 +40,11 @@ class ProductsController < ApplicationController
   end
 
   def load_product
-    @product = Product.find(params[:id])
+    @product = current_account.products.find(params[:id])
   end
 
   def load_brands
-    @brands = Brand.all
+    @brands = current_account.brands.all
   end
 
 end
