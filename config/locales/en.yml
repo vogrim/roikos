@@ -26,6 +26,10 @@ en:
 
   notifications:
     empty: "No recent notifications"
+    
+    
+  update:
+    success: "Successfully saved!"
 
   activerecord:
     models:

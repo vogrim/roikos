@@ -11,6 +11,9 @@ Rails.application.routes.draw do
   scope "/:locale", locale: /de|en/ do
     resources :products, :brands, :movements, :movement_types, :clients, :comments, :commissions
     resources :commission_items, :events, :bills, :client_interactions, :accounts, :users
+    
+    resource :current_user, path: "profile", only: [:show, :update]
+    
   end
 
 

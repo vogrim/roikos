@@ -26,6 +26,9 @@ de:
 
   notifications:
     empty: "Keine kürzlichen Neuigkeiten"
+    
+  update:
+    success: "Erfolgreich gespeichert!"
 
   activerecord:
     models:

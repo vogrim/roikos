@@ -32,3 +32,4 @@ div#nav-container
       = image_tag current_user.avatar, class: "avatar"
       div.user-name = "#{current_user.firstname} #{current_user.surname}"
       div.account-name = "#{current_account.name}"
+      div.profile= link_to "Edit", current_user_path

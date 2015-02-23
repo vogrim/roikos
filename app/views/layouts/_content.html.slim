@@ -1,9 +1,6 @@
 div#content class="container-fluid"
-
-  - if notice
-    div.alert.alert-warning = notice
-
-  - if alert
-    div.alert.alert-danger = alert
+  
+  - flash.each do |key, msg|
+    = content_tag :div, msg, class: "alert alert-#{{ notice: "warning", success: "success", error: "danger"}[key.to_sym]}"
 
   = yield

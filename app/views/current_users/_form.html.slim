@@ -1,0 +1,16 @@
+== simple_form_for current_user, url: current_user_path, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :firstname, label: t_formfield("firstname")
+
+  = f.input :surname, label: t_formfield("surname")
+  
+  = f.input :password, label: t_formfield("password")
+  = f.input :password_confirmation, label: t_formfield("password_confirmation")
+
+  = f.input :avatar
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"
