@@ -82,6 +82,13 @@ $innerPadding: 15px
     padding: 10px $innerPadding
     color: $colorTheme4
 
+    &:hover
+      .profile-link
+        display: block
+
+      .account-name
+        display: none
+
     img
       width: 45px
       height: 45px
@@ -95,9 +102,14 @@ $innerPadding: 15px
       padding-bottom: 3px
       color: #fff
 
-    .account-name
+    .account-name, .profile-link
       font-size: 12px
+      color: $colorTheme3
 
+    .profile-link
+      display: none
+      color: $colorTheme4
+        
 
 
 .navigation-open #nav-container
