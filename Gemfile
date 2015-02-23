@@ -44,6 +44,8 @@ gem 'spring',        group: :development
 
 gem 'slim'
 
+gem "cancancan"
+
 gem 'bourbon'
 
 gem 'bootstrap-sass', '~> 3.1.1'

@@ -11,5 +11,23 @@ class User < ActiveRecord::Base
   def full_name
     "#{firstname} #{surname}"
   end
+  
+  def admin?
+    has_role? "admin"
+  end
+  
+  def user?
+    has_role? "user"
+  end
+  
+  def superuser?
+    has_role? "superuser"
+  end
+  
+  private
+  
+  def has_role?(role)
+    self.role == role
+  end
 
 end

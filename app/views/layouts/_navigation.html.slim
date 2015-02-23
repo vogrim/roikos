@@ -19,8 +19,11 @@ div#nav-container
 
     ul
       li = nav_link_item t_model_name("product"), products_path, "products", "database"
-      li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
-      li = nav_link_item t_model_name("user"), users_path, "users", "user"
+      
+      - if current_user.admin?
+      
+        li = nav_link_item t_model_name("account"), accounts_path, "accounts", "cog"
+        li = nav_link_item t_model_name("user"), users_path, "users", "user"
 
 
   div.nav-group

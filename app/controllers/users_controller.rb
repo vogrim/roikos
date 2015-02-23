@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_filter :load_accounts, only: [:new, :edit]
 
   def index
-    @users = current_account.users.all
+    if current_user.admin?
+      @users = User.all
+    else
+      @users = current_account.users.all
+    end
   end
 
   def new
