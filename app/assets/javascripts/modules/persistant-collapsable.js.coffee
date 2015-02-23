@@ -1,9 +1,9 @@
 $$ ->
   
   openClass    = "open"
-  baseSelector = ".nav-group.toggle.#{openClass}"
+  baseSelector = ".nav-group.toggle"
   
-  $("body").on "click", "#{baseSelector} .nav-seperator", ->
+  $("body").on "click", "#{baseSelector}.#{openClass} .nav-seperator", ->
     localStorage.setItem $(@).parent().data("name"), true
     
   $("body").on "click", "#{baseSelector}:not(.#{openClass}) .nav-seperator", ->
