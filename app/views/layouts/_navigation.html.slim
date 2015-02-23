@@ -31,8 +31,9 @@ div#nav-container
     div.nav-seperator
       = t("accountSettings")
 
-    div.nav-avatar-box
+    = link_to current_user_path, class: 'nav-avatar-box' do
       = image_tag current_user.avatar, class: "avatar"
       div.user-name = "#{current_user.firstname} #{current_user.surname}"
       div.account-name = "#{current_account.name}"
-      = link_to_with_icon "edit", t("edit.label"), current_user_path, class: 'profile-link'
+      div.profile-link = fa_icon "edit", text: t("edit.label")
+      
