@@ -12,6 +12,6 @@ class Bill < ActiveRecord::Base
 
   default_scope { order('sent_at DESC') }
 
-  validates_inclusion_of :client, in: -> (bill) { bill.account.clients }
+  # validates_inclusion_of :client, in: -> (bill) { bill.account.clients }
 
 end

@@ -9,7 +9,6 @@ class Account < ActiveRecord::Base
   has_many :products, through: :brands
   has_many :client_interactions, through: :clients
   has_many :events, through: :clients
-  has_many :bills, through: :clients
   has_many :commissions, through: :clients
   has_many :movements, through: :products
  
