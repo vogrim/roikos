@@ -18,11 +18,11 @@ div.panel
       - for product in @products do
         tr
           td
-            strong = product.title
-            small.text-muted = " - #{product.author}"
+            div: strong = product.title
+            small.text-muted = product.author
           td = product.shortcut
           td = product.brand.title
           td.text-right.no-wrap
             = link_to_with_icon 'edit', t("edit.label"), edit_product_path(product), class: "btn btn-default btn-xs"
             |  
-            = link_to_with_icon 'trash', t("delete.label"), product_path(product), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+            = link_to_with_icon 'trash', "", product_path(product), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

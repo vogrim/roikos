@@ -8,7 +8,7 @@ class window.Form
 
   init: ->
 
-    $('[type=search]').focus()
+    $('input[name=q]').focus()
 
   datepicker: =>
 

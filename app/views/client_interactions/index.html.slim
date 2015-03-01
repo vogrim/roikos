@@ -27,7 +27,7 @@ div.panel
           td.text-right
             = link_to_with_icon 'edit', t("edit.label"), edit_client_interaction_path(client_interaction), class: "btn btn-default btn-xs"
             |  
-            = link_to_with_icon 'trash', t("delete.label"), client_interaction_path(client_interaction), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+            = link_to_with_icon 'trash', "", client_interaction_path(client_interaction), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
 
   div.clear-fix
     == will_paginate @posts, renderer: BootstrapPagination::Rails, class: 'pull-right'
