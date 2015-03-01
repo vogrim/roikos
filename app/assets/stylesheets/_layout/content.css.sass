@@ -2,7 +2,6 @@
   padding-top: 15px
 
 .btn
-  font-size: $fontSizeMedium
 
   i
     margin-right: 3px
@@ -31,19 +30,23 @@
     margin-bottom: 23px
     color: $colorTheme3
 
+  input:focus
+    box-shadow: 0 0 8px rgba(#8394a9, 0.6)
+
+  tr:hover td
+    background: #f7f9fb!important
+
   thead th
     color: rgba($colorBlack, .5)
-    color: $colorTheme3
-
-  thead tr th
-    // border-color: red
+    color: #8394a9
+    font-size: 12px
+    white-space: nowrap
 
   tbody td
-    color: rgba($colorBlack, .9)
     color: #8394a9
 
-    a
-      color: #2b3d51
+    strong, strong a
+      color: #363c47
 
   .backlink
     opacity: .5
@@ -53,7 +56,7 @@
     vertical-align: -6px
 
   .btn-default.btn-xs
-    opacity: .6
+    opacity: .5
 
     &:hover
       opacity: 1
@@ -124,8 +127,8 @@
     border-color: $colorWhite
     border-width: 3px
 
-tr.past td
-  color: #ababab
+tr.active td
+  background: shade(#f7f9fb, 3%)!important
 
 .shift-time
 
