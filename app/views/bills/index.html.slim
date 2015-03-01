@@ -16,7 +16,7 @@ div.panel
 
     tbody
       - for bill in @bills do
-        tr
+        tr(class="#{bill.is_payed ? '' : 'active'}")
           td: strong = link_to bill.label, edit_bill_path(bill)
           td = bill.client ? link_to(bill.client.main_title_for_detail, client_path(bill.client)) : "Kein Kunde"
           td = bill.sent_at.nil? ? "-" : l(bill.sent_at)
@@ -26,4 +26,4 @@ div.panel
           td.text-right.no-wrap
             = link_to_with_icon 'edit', t("edit.label"), edit_bill_path(bill), class: "btn btn-default btn-xs"
             |  
-            = link_to_with_icon 'trash', t("delete.label"), bill_path(bill), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+            = link_to_with_icon 'trash', "", bill_path(bill), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

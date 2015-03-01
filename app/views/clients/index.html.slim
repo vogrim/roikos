@@ -21,7 +21,7 @@ div.panel
           td.text-right
             = link_to_with_icon 'pencil', t("edit.label"), edit_client_path(client), class: "btn btn-default btn-xs"
             |  
-            = link_to_with_icon 'trash-o', t("delete.label"), client_path(client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+            = link_to_with_icon 'trash-o', "", client_path(client), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
 
   div.clearfix
 

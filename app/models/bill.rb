@@ -14,4 +14,8 @@ class Bill < ActiveRecord::Base
 
   # validates_inclusion_of :client, in: -> (bill) { bill.account.clients }
 
+  def is_payed
+    ! payed_at.nil?
+  end
+
 end
