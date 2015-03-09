@@ -25,6 +25,7 @@ class window.Navigation
       @$body.toggleClass 'sidebar-closed'
       if localStorage.getItem @$body.data("sidebar-closed")
         localStorage.removeItem @$body.data("sidebar-closed")
+        $('#nav-container').show()
       else
         localStorage.setItem @$body.data("sidebar-closed"), true
       return false
