@@ -43,6 +43,6 @@ class window.Navigation
       if @$body.hasClass 'sidebar-closed'
         $navContainer.hide()
 
-    @$body.on 'mouseleave', '#sidebar-toggle', =>
+    @$body.on 'mouseleave', '#header-content', =>
       if !$navContainer.is(':hover') and @$body.hasClass 'sidebar-closed'
         $navContainer.hide()
