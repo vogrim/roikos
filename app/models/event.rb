@@ -18,4 +18,8 @@ class Event < ActiveRecord::Base
     newInteraction.save
   end
 
+  def sellrate
+    sales * 100 / audience_count
+  end
+
 end

@@ -49,6 +49,8 @@ en:
         interaction_at: "Interaction at"
         firstname: "Firstname"
         surname: "Surname"
+        sales: "Sales"
+        sales_rate: "Sales rate"
 
   helpers:
     submit:

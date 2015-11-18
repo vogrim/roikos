@@ -10,6 +10,14 @@ div.panel.list
         strong = link_to "#{l(event.event_at)}, ", edit_event_path(event)
         span = "#{event.audience_count} #{t('attendee')}"
       div.sub.text-muted
-        - unless event.note.empty?
-          strong = "#{event.note}, "
+        - if event.sales > 0
+          - if event.sellrate >= 22
+            strong.green = "#{t_formfield("sales_rate")}: #{event.sellrate}%"
+          - elsif event.sellrate > 16 && event.sellrate < 22
+            strong.neutral = "#{t_formfield("sales_rate")}: #{event.sellrate}%"
+          - else
+            strong.red = "#{t_formfield("sales_rate")}: #{event.sellrate}%"
+          span , 
         span = "#{t_formfield('age_class')}: #{event.audience_age_class}"
+        - unless event.note.empty?
+          div: strong = "#{event.note}, "
