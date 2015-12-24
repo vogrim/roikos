@@ -1,0 +1,11 @@
+== simple_form_for @client_project, html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  == f.input :title
+
+  = f.input :active, as: :select
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

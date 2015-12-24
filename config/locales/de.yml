@@ -83,6 +83,10 @@ de:
         one: "Interaktion"
         other: "Interaktionen"
 
+      client_project:
+        one: "Kunden-Projekt"
+        other: "Kunden-Projekte"
+
   newitem: "Neuen Eintrag hinzufügen"
 
   edit:

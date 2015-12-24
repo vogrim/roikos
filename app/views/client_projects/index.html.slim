@@ -1,0 +1,28 @@
+div.panel
+
+  h1 = set_page_title t("activerecord.models.client_project.other")
+
+  div.pull-right
+    = link_to_with_icon 'plus', t("newitem"), new_client_project_path , class: "btn btn-primary pull-right"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th = t_formfield("title")
+        th.text-right
+
+    tbody
+      - for client_project in @client_projects do
+        tr(class="#{client_project.active ? 'active' : ''}")
+          td: strong = link_to client_project.title, client_project_path(client_project)
+          td.text-right
+            = link_to_with_icon 'pencil', t("edit.label"), edit_client_project_path(client_project), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash-o', "", client_project_path(client_project), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"
+
+  div.clearfix
+
+    == will_paginate @posts, renderer: BootstrapPagination::Rails, class: 'pull-right'
+
+
+  div.clearfix
