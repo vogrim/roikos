@@ -88,6 +88,10 @@ en:
         one: "Client-project"
         other: "Client-projects"
 
+      client_projects:
+        one: "Client-project-item"
+        other: "Client-project-items"
+
   newitem: "Add new item"
 
   edit:
