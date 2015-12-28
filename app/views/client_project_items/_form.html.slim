@@ -1,0 +1,13 @@
+== simple_form_for [@client_project, @client_project_item], html: { class: 'form-horizontal' }, wrapper: :horizontal_form do |f|
+
+  = f.input :client_id, collection: @clients, :include_blank => "-", label: t_formfield("client"), label_method: :title_for_list
+
+  = f.input :status, collection: @client_project.statuses_collection
+
+  = f.input :note, :cols => "10", :rows => "10"
+
+  div.clearfix.mB20
+
+    = f.button :submit, class: "pull-right btn-primary" 
+
+    = link_to t("back"), :back, class: "backlink"

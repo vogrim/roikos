@@ -2,6 +2,8 @@
 
   == f.input :title
 
+  = f.input :statuses, :input_html => {:rows => 5}, :hint => "One per line"
+
   = f.input :active, as: :select
 
   div.clearfix.mB20

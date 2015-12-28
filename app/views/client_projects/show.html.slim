@@ -1,3 +1,36 @@
 div.panel
 
-  h1 = @client_project.title
+  h1
+    a: strong = link_to "#{t('activerecord.models.client_project.one')}: ", client_projects_path
+    span = @client_project.title
+
+
+  = link_to_with_icon 'plus', t("newitem"), new_client_project_client_project_item_path(@client_project) , class: "btn btn-primary pull-right"
+  = link_to_with_icon 'pencil', t("edit.label"), edit_client_project_path(@client_project), class: "pull-right btn btn-default mR20"
+
+  table.table.table-responsive.table-hover
+    thead
+      tr
+        th #
+        th = t_formfield("name")
+        th = t_formfield("phone")
+        th = t_formfield("status")
+        th.text-right
+
+    tbody
+      - i = 0
+      - for item in @client_project.client_project_items do
+        tr
+          td = i = i+1
+          td
+            strong = link_to item.client.main_title_for_detail, client_path(item.client)
+            div: small = item.note
+          td
+            - unless item.client.phone.empty?
+              a(href="skype:#{item.client.phone}") = Phony.format(Phony.normalize(item.client.phone))
+          td
+            span(class="label label-#{item.status_label}") = item.status_value
+          td.text-right
+            = link_to_with_icon 'pencil', "", edit_client_project_client_project_item_path(item.client_project.id, item), class: "btn btn-default btn-xs"
+            |  
+            = link_to_with_icon 'trash-o', "", client_project_client_project_item_path(item, item.client_project.id), method: :delete, data: { confirm: t("delete.confirm") }, class: "btn btn-default btn-xs"

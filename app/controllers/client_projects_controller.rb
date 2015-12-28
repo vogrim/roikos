@@ -21,7 +21,7 @@ class ClientProjectsController < ApplicationController
 
   def update
     if @client_project.update_attributes client_project_params
-      redirect_to client_path(@client_project.client)
+      redirect_to client_project_path(@client_project)
     else
       render :action => "edit"
     end
@@ -35,7 +35,7 @@ class ClientProjectsController < ApplicationController
   private
 
   def client_project_params
-    params.require(:client_project).permit(:title, :active, :_destroy)
+    params.require(:client_project).permit(:title, :active, :statuses, :_destroy)
   end
 
   def load_client_project
